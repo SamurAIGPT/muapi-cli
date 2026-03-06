@@ -337,6 +337,81 @@ TOOLS = [
             "properties": {"message": {"type": "string"}},
         },
     },
+    # ── Workflow ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_workflow_list",
+        "description": "List all saved workflows for the authenticated user.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {"type": "object", "properties": {}},
+        "outputSchema": {"type": "array"},
+    },
+    {
+        "name": "muapi_workflow_create",
+        "description": "Generate a new multi-step AI workflow from a text description using the AI architect. Returns the workflow definition with nodes and connections.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt": {"type": "string", "description": "Describe the workflow, e.g. 'generate image with flux then upscale it'"},
+                "sync":   {"type": "boolean", "default": True},
+            },
+            "required": ["prompt"],
+        },
+        "outputSchema": {"type": "object"},
+    },
+    {
+        "name": "muapi_workflow_get",
+        "description": "Get a workflow definition by ID including its nodes and connections.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"workflow_id": {"type": "string"}},
+            "required": ["workflow_id"],
+        },
+        "outputSchema": {"type": "object"},
+    },
+    {
+        "name": "muapi_workflow_execute",
+        "description": "Execute a workflow with specific node inputs. Returns a run_id to poll with muapi_workflow_status.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "workflow_id": {"type": "string"},
+                "inputs":      {"type": "object", "description": "Map of {node_id: {param: value}}"},
+            },
+            "required": ["workflow_id"],
+        },
+        "outputSchema": {"type": "object", "properties": {"run_id": {"type": "string"}}},
+    },
+    {
+        "name": "muapi_workflow_status",
+        "description": "Get the node-by-node status of a workflow run.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"run_id": {"type": "string"}},
+            "required": ["run_id"],
+        },
+        "outputSchema": {"type": "object"},
+    },
+    {
+        "name": "muapi_workflow_outputs",
+        "description": "Get the final output URLs of a completed workflow run.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"run_id": {"type": "string"}},
+            "required": ["run_id"],
+        },
+        "outputSchema": {"type": "object"},
+    },
     # ── Account ──────────────────────────────────────────────────────────────
     {
         "name": "muapi_account_balance",
@@ -483,6 +558,81 @@ def _dispatch(tool_name: str, args: dict) -> dict:
 
     if tool_name == "muapi_upload_file":
         return api_client.upload_file(args["file_path"])
+
+    if tool_name == "muapi_workflow_list":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        resp = _httpx.get(f"{wf_base}/get-workflow-defs", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_workflow_create":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        body = {"prompt": args["prompt"], "sync": args.get("sync", True)}
+        resp = _httpx.post(f"{wf_base}/architect", json=body, headers={"x-api-key": key}, timeout=120.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_workflow_get":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        resp = _httpx.get(f"{wf_base}/get-workflow-def/{args['workflow_id']}", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_workflow_execute":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        body = {"inputs": args.get("inputs", {})}
+        resp = _httpx.post(f"{wf_base}/{args['workflow_id']}/api-execute", json=body,
+                           headers={"x-api-key": key}, timeout=60.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_workflow_status":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        resp = _httpx.get(f"{wf_base}/run/{args['run_id']}/status", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_workflow_outputs":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured.")
+        wf_base = BASE_URL.replace("/api/v1", "") + "/workflow"
+        resp = _httpx.get(f"{wf_base}/run/{args['run_id']}/api-outputs", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
 
     if tool_name == "muapi_keys_list":
         from ..config import BASE_URL, get_api_key

@@ -5,7 +5,7 @@ import typer
 from rich import print as rprint
 
 from . import __version__
-from .commands import auth, account, audio, config_cmd, docs, edit, enhance, image, keys, models, predict, upload, video
+from .commands import auth, account, audio, config_cmd, docs, edit, enhance, image, keys, models, predict, upload, video, workflow
 from .commands import mcp_server
 
 app = typer.Typer(
@@ -29,6 +29,7 @@ app.add_typer(edit.app,        name="edit",    help="Edit videos (effects, lipsy
 app.add_typer(predict.app,     name="predict", help="Check or wait for async prediction results.")
 app.add_typer(upload.app,      name="upload",  help="Upload local files to get a hosted URL.")
 app.add_typer(models.app,      name="models",  help="Discover all available models.")
+app.add_typer(workflow.app,    name="workflow", help="Build, run, and visualize multi-step AI workflows.")
 app.add_typer(config_cmd.app,  name="config",  help="Get and set persistent CLI configuration.")
 app.add_typer(docs.app,        name="docs",    help="Access the muapi.ai API documentation.")
 app.add_typer(mcp_server.app,  name="mcp",     help="Run as an MCP server for AI agent integration.")
