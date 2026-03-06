@@ -120,6 +120,7 @@ def _visualize(workflow: dict) -> None:
 
 @app.command("list")
 def list_workflows(
+    limit: Optional[int] = typer.Option(None, "--limit", help="Max workflows to show"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """List all your saved workflows."""
@@ -129,6 +130,9 @@ def list_workflows(
         error_exit(str(e), exitcodes.ERROR)
 
     workflows = data if isinstance(data, list) else data.get("workflows", [data])
+    if limit:
+        workflows = workflows[:limit]
+
     if output_json:
         out.print_json(json.dumps(workflows))
         return
@@ -137,21 +141,79 @@ def list_workflows(
         console.print("[dim]No workflows found.[/dim]")
         return
 
-    from rich.table import Table
     table = Table(show_header=True, header_style="bold")
     table.add_column("ID", style="dim", no_wrap=True)
-    table.add_column("Name")
+    table.add_column("Name", style="cyan")
+    table.add_column("Category", style="green")
+    table.add_column("Description", style="italic")
     table.add_column("Nodes", justify="right")
     table.add_column("Created")
     for w in workflows:
         nodes = w.get("nodes") or w.get("data", {}).get("nodes") or []
+        desc = w.get("description") or ""
+        if len(desc) > 50: desc = desc[:47] + "..."
         table.add_row(
             str(w.get("id", "")),
             w.get("name", "(unnamed)"),
+            w.get("category", "General"),
+            desc,
             str(len(nodes)),
             str(w.get("created_at", ""))[:10],
         )
     console.print(table)
+
+
+@app.command("discover")
+def discover_workflows(
+    query: Optional[str] = typer.Argument(None, help="Optional search intent (ignored locally, used for LLM context)"),
+    limit: int = typer.Option(50, "--limit", help="Max matches to return for the LLM to analyze"),
+    output_json: bool = typer.Option(False, "--output-json", "-j"),
+):
+    """
+    List workflows with their descriptions so an AI agent can find the best match.
+    """
+    try:
+        data = _get("get-workflow-defs")
+    except httpx.HTTPStatusError as e:
+        error_exit(str(e), exitcodes.ERROR)
+
+    workflows = data if isinstance(data, list) else data.get("workflows", [data])
+    
+    # We rely on the calling LLM agent to do the semantic matching, so we return all available ones.
+    matches = workflows
+
+    if output_json:
+        out.print_json(json.dumps(matches[:limit]))
+        return
+
+    if not matches:
+        console.print(f"[dim]No workflows found in your account.[/dim]")
+        return
+
+    if query:
+        console.print(f"[bold]Evaluating workflows for:[/bold] '{query}'")
+    else:
+        console.print(f"[bold]Workflows available for discovery:[/bold]")
+
+    from rich.table import Table
+    table = Table(show_header=True, header_style="bold")
+    table.add_column("ID", style="dim")
+    table.add_column("Name", style="cyan")
+    table.add_column("Category", style="green")
+    table.add_column("Description", style="italic")
+    for w in matches[:limit]:
+        desc = w.get("description") or ""
+        if len(desc) > 80: desc = desc[:77] + "..."
+        table.add_row(
+            str(w.get("id")), 
+            w.get("name"),
+            w.get("category", "General"),
+            desc
+        )
+    console.print(table)
+    
+    if matches:
+        console.print(f"\n[green]Best Match ID:[/green] [bold]{matches[0].get('id')}[/bold]")
 
 
 @app.command("templates")
@@ -225,6 +287,7 @@ def create_workflow(
     prompt: str = typer.Argument(..., help="Describe the workflow you want to build"),
     name: str = typer.Option("", "--name", "-n", help="Workflow name (optional)"),
     sync: bool = typer.Option(True, "--sync/--async", help="Wait for generation (default: on)"),
+    view: bool = typer.Option(False, "--view", help="Open workflow in browser after creation"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """Generate a new workflow from a text description using the AI architect.
@@ -259,6 +322,11 @@ def create_workflow(
 
     wf = data.get("workflow") or data
     console.print(f"[green]Workflow created:[/green] [bold]{wf.get('id', '')}[/bold]  {wf.get('name', '')}")
+    if view:
+        import webbrowser
+        url = _WORKFLOW_BASE.replace("/workflow", "") + f"/workflow/{wf.get('id')}"
+        console.print(f"[dim]Opening:[/dim] {url}")
+        webbrowser.open(url)
     _visualize(wf)
 
 
@@ -267,6 +335,7 @@ def edit_workflow(
     workflow_id: str = typer.Argument(..., help="Workflow ID to edit"),
     prompt: str = typer.Option(..., "--prompt", "-p", help="Describe the change to make"),
     sync: bool = typer.Option(True, "--sync/--async"),
+    view: bool = typer.Option(False, "--view", help="Open workflow in browser after edit"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """Edit an existing workflow using natural language.
@@ -297,6 +366,11 @@ def edit_workflow(
 
     wf = data.get("workflow") or data
     console.print(f"[green]Workflow updated:[/green] [bold]{wf.get('id', '')}[/bold]")
+    if view:
+        import webbrowser
+        url = _WORKFLOW_BASE.replace("/workflow", "") + f"/workflow/{wf.get('id')}"
+        console.print(f"[dim]Opening:[/dim] {url}")
+        webbrowser.open(url)
     _visualize(wf)
 
 
@@ -423,6 +497,59 @@ def execute_workflow(
         return
 
     _wait_for_run(run_id, output_json=output_json, download=download)
+
+
+@app.command("run-interactive")
+def interactive_run(
+    workflow_id: str = typer.Argument(..., help="Workflow ID"),
+    webhook: str = typer.Option("", "--webhook"),
+    wait: bool = typer.Option(True, "--wait/--no-wait"),
+    download: str = typer.Option("", "--download", "-d"),
+):
+    """Run a workflow and interactively prompt for required inputs."""
+    try:
+        # 1. Fetch Input Schema
+        inputs_resp = _get(f"{workflow_id}/api-inputs")
+    except httpx.HTTPStatusError as e:
+        error_exit(str(e), exitcodes.ERROR)
+
+    # Note: schema structure from server is nested
+    input_props = inputs_resp.get("input_data", {}).get("properties", {})
+    if not input_props:
+        console.print("[yellow]This workflow has no interactive input nodes.[/yellow]")
+        run_workflow(workflow_id, webhook=webhook, wait=wait, download=download)
+        return
+
+    console.print(f"[bold]Interactive Run:[/bold] {workflow_id}")
+    console.print("[dim]Please provide values for the following inputs:[/dim]\n")
+
+    input_pairs = []
+    for node_id, meta in input_props.items():
+        title = meta.get("title", node_id)
+        desc = meta.get("description", "")
+        example = meta.get("examples", [""])[0] if meta.get("examples") else ""
+        name = meta.get("name", "value")
+
+        prompt_str = f"[bold cyan]* {title}[/bold cyan] ({node_id})"
+        if desc:
+            prompt_str += f"\n  [dim]{desc}[/dim]"
+        if example:
+            prompt_str += f"\n  [dim]Example: {example}[/dim]"
+        
+        console.print(prompt_str)
+        val = typer.prompt(f"  Enter {title}")
+        
+        # Format as expected by 'execute' command logic
+        input_pairs.append(f"{node_id}.{name}={val}")
+
+    # 2. Reuse execute_workflow logic
+    execute_workflow(
+        workflow_id=workflow_id,
+        input=input_pairs,
+        webhook=webhook,
+        wait=wait,
+        download=download
+    )
 
 
 @app.command("status")
