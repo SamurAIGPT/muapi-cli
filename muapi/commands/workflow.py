@@ -638,6 +638,15 @@ def _print_run_status(data: dict) -> None:
     """Pretty-print node-by-node run status."""
     from rich.table import Table
     nodes = data.get("nodes") or data.get("node_statuses") or []
+    if isinstance(nodes, dict):
+        flat_nodes = []
+        for v in nodes.values():
+            if isinstance(v, list):
+                flat_nodes.extend(v)
+            else:
+                flat_nodes.append(v)
+        nodes = flat_nodes
+        
     overall = data.get("status", "")
 
     console.print(f"[bold]Run status:[/bold] {overall}")
