@@ -1,0 +1,73 @@
+"""muapi CLI — official command-line interface for muapi.ai"""
+from typing import Optional
+
+import typer
+from rich import print as rprint
+
+from . import __version__
+from .commands import auth, audio, edit, enhance, image, models, predict, upload, video
+from .commands import mcp_server
+
+app = typer.Typer(
+    name="muapi",
+    help="muapi.ai CLI — generate images, videos, and audio from the terminal.",
+    add_completion=True,
+    rich_markup_mode="rich",
+    no_args_is_help=True,
+)
+
+# ── Subcommand groups ──────────────────────────────────────────────────────────
+
+app.add_typer(auth.app,        name="auth",    help="Configure API key and authentication.")
+app.add_typer(image.app,       name="image",   help="Generate or edit images.")
+app.add_typer(video.app,       name="video",   help="Generate videos from text or images.")
+app.add_typer(audio.app,       name="audio",   help="Create or remix music and audio.")
+app.add_typer(enhance.app,     name="enhance", help="Enhance images (upscale, bg-remove, face-swap…).")
+app.add_typer(edit.app,        name="edit",    help="Edit videos (effects, lipsync, dance, dress…).")
+app.add_typer(predict.app,     name="predict", help="Check or wait for async prediction results.")
+app.add_typer(upload.app,      name="upload",  help="Upload local files to get a hosted URL.")
+app.add_typer(models.app,      name="models",  help="Discover all available models.")
+app.add_typer(mcp_server.app,  name="mcp",     help="Run as an MCP server for AI agent integration.")
+
+
+@app.command("version")
+def version(
+    output_json: bool = typer.Option(False, "--output-json", "-j"),
+):
+    """Show the muapi CLI version."""
+    if output_json:
+        import json
+        from .utils import out
+        out.print_json(json.dumps({"version": __version__, "name": "muapi-cli"}))
+    else:
+        rprint(f"muapi CLI [bold]{__version__}[/bold]")
+
+
+@app.callback(invoke_without_command=True)
+def main(
+    ctx: typer.Context,
+    no_color: bool = typer.Option(
+        False, "--no-color",
+        help="Disable colored output (also respects NO_COLOR env var)",
+        is_eager=True,
+    ),
+    version_flag: bool = typer.Option(
+        False, "--version", "-V",
+        help="Show version and exit",
+        is_eager=True,
+    ),
+):
+    if no_color:
+        from .utils import disable_color
+        disable_color()
+
+    if version_flag:
+        rprint(f"muapi CLI [bold]{__version__}[/bold]")
+        raise typer.Exit()
+
+    if ctx.invoked_subcommand is None:
+        rprint(ctx.get_help())
+
+
+if __name__ == "__main__":
+    app()

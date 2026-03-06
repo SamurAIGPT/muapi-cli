@@ -1,0 +1,503 @@
+"""muapi mcp serve — expose all muapi tools as an MCP server.
+
+Run:  muapi mcp serve
+Then add to Claude Desktop / VS Code / any MCP client.
+
+Each generation endpoint becomes a structured MCP tool with:
+- Full JSON Schema input definition
+- outputSchema for validated structured responses
+- Proper isError signalling (no silent failures)
+- Tool annotations (read-only vs. side-effecting)
+"""
+import json
+import sys
+from typing import Any
+
+import typer
+
+from .. import client as api_client
+from ..config import get_api_key
+
+app = typer.Typer(help="Run muapi as an MCP server for AI agent integration.")
+
+
+# ── Shared schemas ────────────────────────────────────────────────────────────
+
+def _prediction_output_schema() -> dict:
+    return {
+        "type": "object",
+        "properties": {
+            "request_id": {"type": "string"},
+            "status":     {"type": "string", "enum": ["pending", "processing", "completed", "failed"]},
+            "outputs":    {"type": "array", "items": {"type": "string", "format": "uri"}},
+            "error":      {"type": "string"},
+        },
+        "required": ["status"],
+    }
+
+
+# ── Tool registry ─────────────────────────────────────────────────────────────
+
+TOOLS = [
+    # ── Images ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_image_generate",
+        "description": "Generate an image from a text prompt using muapi.ai. Returns URLs of generated images.",
+        "endpoint": None,  # dynamic — chosen from 'model' param
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":       {"type": "string",  "description": "Text description of the image to generate"},
+                "model":        {"type": "string",  "description": "Model name", "default": "flux-dev",
+                                 "enum": ["flux-dev","flux-schnell","flux-kontext-dev","flux-kontext-pro",
+                                          "flux-kontext-max","hidream-fast","hidream-dev","hidream-full",
+                                          "wan2.1","reve","gpt4o","midjourney","seedream","qwen"]},
+                "width":        {"type": "integer", "description": "Image width in pixels", "default": 1024},
+                "height":       {"type": "integer", "description": "Image height in pixels", "default": 1024},
+                "num_images":   {"type": "integer", "description": "Number of images (1-4)", "default": 1, "minimum": 1, "maximum": 4},
+                "aspect_ratio": {"type": "string",  "description": "Aspect ratio (used by kontext/midjourney models)", "default": "1:1"},
+            },
+            "required": ["prompt"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_image_edit",
+        "description": "Edit or transform an image using a text prompt and a source image URL.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":       {"type": "string", "description": "Edit instruction"},
+                "image_url":    {"type": "string", "description": "Source image URL", "format": "uri"},
+                "model":        {"type": "string", "default": "flux-kontext-dev",
+                                 "enum": ["flux-kontext-dev","flux-kontext-pro","flux-kontext-max",
+                                          "flux-kontext-effects","gpt4o","reve","seededit",
+                                          "midjourney","midjourney-style","midjourney-omni","qwen"]},
+                "aspect_ratio": {"type": "string", "default": "1:1"},
+                "num_images":   {"type": "integer", "default": 1, "minimum": 1, "maximum": 4},
+            },
+            "required": ["prompt", "image_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    # ── Videos ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_video_generate",
+        "description": "Generate a video from a text prompt using muapi.ai.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":       {"type": "string", "description": "Video description prompt"},
+                "model":        {"type": "string", "default": "kling-master",
+                                 "enum": ["veo3","veo3-fast","kling-master","wan2.1","wan2.2",
+                                          "seedance-pro","seedance-lite","hunyuan","runway",
+                                          "pixverse","vidu","minimax-std","minimax-pro"]},
+                "duration":     {"type": "integer", "description": "Duration in seconds", "default": 5},
+                "aspect_ratio": {"type": "string", "default": "16:9"},
+            },
+            "required": ["prompt"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_video_from_image",
+        "description": "Animate an image into a video using muapi.ai.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":       {"type": "string", "description": "Motion/animation prompt"},
+                "image_url":    {"type": "string", "description": "Source image URL", "format": "uri"},
+                "model":        {"type": "string", "default": "kling-std",
+                                 "enum": ["veo3","veo3-fast","kling-std","kling-pro","kling-master",
+                                          "wan2.1","wan2.2","seedance-pro","seedance-lite","hunyuan",
+                                          "runway","pixverse","vidu","midjourney","minimax-std","minimax-pro"]},
+                "duration":     {"type": "integer", "default": 5},
+                "aspect_ratio": {"type": "string", "default": "16:9"},
+            },
+            "required": ["prompt", "image_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    # ── Audio ────────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_audio_create",
+        "description": "Create original music using Suno via muapi.ai.",
+        "endpoint": "suno-create-music",
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":         {"type": "string", "description": "Music description or lyrics"},
+                "title":          {"type": "string", "default": ""},
+                "tags":           {"type": "string", "description": "Genre/style tags", "default": ""},
+                "make_instrumental": {"type": "boolean", "default": False},
+            },
+            "required": ["prompt"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_audio_from_text",
+        "description": "Generate sound effects or ambient audio from a text prompt using MMAudio.",
+        "endpoint": "mmaudio-v2/text-to-audio",
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt":   {"type": "string"},
+                "duration": {"type": "number", "default": 10.0},
+            },
+            "required": ["prompt"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    # ── Enhance ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_enhance_upscale",
+        "description": "Upscale an image using AI.",
+        "endpoint": "ai-image-upscale",
+        "annotations": {"readOnlyHint": False, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"image_url": {"type": "string", "format": "uri"}},
+            "required": ["image_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_enhance_bg_remove",
+        "description": "Remove the background from an image.",
+        "endpoint": "ai-background-remover",
+        "annotations": {"readOnlyHint": False, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"image_url": {"type": "string", "format": "uri"}},
+            "required": ["image_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_enhance_face_swap",
+        "description": "Swap faces in an image or video.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "source_url": {"type": "string", "description": "Face source image URL", "format": "uri"},
+                "target_url": {"type": "string", "description": "Target image or video URL", "format": "uri"},
+                "mode":       {"type": "string", "enum": ["image", "video"], "default": "image"},
+            },
+            "required": ["source_url", "target_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_enhance_ghibli",
+        "description": "Convert an image to Studio Ghibli anime style.",
+        "endpoint": "ai-ghibli-style",
+        "annotations": {"readOnlyHint": False, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {"image_url": {"type": "string", "format": "uri"}},
+            "required": ["image_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    # ── Edit ─────────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_edit_lipsync",
+        "description": "Sync lip movements in a video to an audio file.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "video_url": {"type": "string", "format": "uri"},
+                "audio_url": {"type": "string", "format": "uri"},
+                "model":     {"type": "string", "enum": ["sync","latentsync","creatify","veed"], "default": "sync"},
+            },
+            "required": ["video_url", "audio_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_edit_clipping",
+        "description": "Extract AI-selected highlight clips from a long video.",
+        "endpoint": "ai-clipping",
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "video_url":      {"type": "string", "format": "uri"},
+                "num_highlights": {"type": "integer", "default": 3},
+                "aspect_ratio":   {"type": "string", "default": "9:16"},
+            },
+            "required": ["video_url"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    # ── Predict ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_predict_result",
+        "description": "Fetch the current result of an async prediction by request ID.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "request_id": {"type": "string", "description": "Prediction request ID"},
+            },
+            "required": ["request_id"],
+        },
+        "outputSchema": _prediction_output_schema(),
+    },
+    {
+        "name": "muapi_upload_file",
+        "description": "Upload a local file to muapi.ai and get back a hosted URL.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "file_path": {"type": "string", "description": "Absolute local file path"},
+            },
+            "required": ["file_path"],
+        },
+        "outputSchema": {
+            "type": "object",
+            "properties": {
+                "url": {"type": "string", "description": "Hosted file URL"},
+            },
+        },
+    },
+]
+
+
+# ── Tool dispatch ─────────────────────────────────────────────────────────────
+
+def _dispatch(tool_name: str, args: dict) -> dict:
+    """Call the appropriate muapi endpoint for a tool name."""
+    from .image   import T2I_MODELS, I2I_MODELS
+    from .video   import T2V_MODELS, I2V_MODELS
+    from .audio   import app as _  # import to ensure module loaded
+    from .enhance import app as _
+    from .edit    import app as _
+
+    LIPSYNC_MAP = {"sync": "lipsync", "latentsync": "latentsync", "creatify": "creatify-lipsync", "veed": "veed-lipsync"}
+
+    if tool_name == "muapi_image_generate":
+        model    = args.get("model", "flux-dev")
+        endpoint = T2I_MODELS.get(model)
+        if not endpoint:
+            raise ValueError(f"Unknown image model: {model}")
+        payload  = {"prompt": args["prompt"], "num_images": args.get("num_images", 1)}
+        if model.startswith("flux-kontext") or model in ("midjourney", "seedream", "qwen", "reve"):
+            payload["aspect_ratio"] = args.get("aspect_ratio", "1:1")
+        else:
+            payload["width"]  = args.get("width",  1024)
+            payload["height"] = args.get("height", 1024)
+        return api_client.generate(endpoint, payload)
+
+    if tool_name == "muapi_image_edit":
+        model    = args.get("model", "flux-kontext-dev")
+        endpoint = I2I_MODELS.get(model)
+        if not endpoint:
+            raise ValueError(f"Unknown image edit model: {model}")
+        payload  = {
+            "prompt":       args["prompt"],
+            "aspect_ratio": args.get("aspect_ratio", "1:1"),
+            "num_images":   args.get("num_images", 1),
+        }
+        if model.startswith("flux-kontext"):
+            payload["images_list"] = [args["image_url"]]
+        else:
+            payload["image_url"] = args["image_url"]
+        return api_client.generate(endpoint, payload)
+
+    if tool_name == "muapi_video_generate":
+        model    = args.get("model", "kling-master")
+        endpoint = T2V_MODELS.get(model)
+        if not endpoint:
+            raise ValueError(f"Unknown video model: {model}")
+        return api_client.generate(endpoint, {
+            "prompt": args["prompt"],
+            "duration": args.get("duration", 5),
+            "aspect_ratio": args.get("aspect_ratio", "16:9"),
+        })
+
+    if tool_name == "muapi_video_from_image":
+        model    = args.get("model", "kling-std")
+        endpoint = I2V_MODELS.get(model)
+        if not endpoint:
+            raise ValueError(f"Unknown i2v model: {model}")
+        return api_client.generate(endpoint, {
+            "prompt": args["prompt"], "image_url": args["image_url"],
+            "duration": args.get("duration", 5),
+            "aspect_ratio": args.get("aspect_ratio", "16:9"),
+        })
+
+    if tool_name == "muapi_audio_create":
+        return api_client.generate("suno-create-music", {
+            "prompt": args["prompt"], "title": args.get("title", ""),
+            "tags": args.get("tags", ""), "make_instrumental": args.get("make_instrumental", False),
+        })
+
+    if tool_name == "muapi_audio_from_text":
+        return api_client.generate("mmaudio-v2/text-to-audio", {
+            "prompt": args["prompt"], "duration": args.get("duration", 10.0),
+        })
+
+    if tool_name == "muapi_enhance_upscale":
+        return api_client.generate("ai-image-upscale", {"image_url": args["image_url"]})
+
+    if tool_name == "muapi_enhance_bg_remove":
+        return api_client.generate("ai-background-remover", {"image_url": args["image_url"]})
+
+    if tool_name == "muapi_enhance_face_swap":
+        ep = "ai-video-face-swap" if args.get("mode") == "video" else "ai-image-face-swap"
+        return api_client.generate(ep, {"source_url": args["source_url"], "target_url": args["target_url"]})
+
+    if tool_name == "muapi_enhance_ghibli":
+        return api_client.generate("ai-ghibli-style", {"image_url": args["image_url"]})
+
+    if tool_name == "muapi_edit_lipsync":
+        model = args.get("model", "sync")
+        ep    = LIPSYNC_MAP.get(model, "lipsync")
+        return api_client.generate(ep, {"video_url": args["video_url"], "audio_url": args["audio_url"]})
+
+    if tool_name == "muapi_edit_clipping":
+        return api_client.generate("ai-clipping", {
+            "video_url": args["video_url"],
+            "num_highlights": args.get("num_highlights", 3),
+            "aspect_ratio": args.get("aspect_ratio", "9:16"),
+        })
+
+    if tool_name == "muapi_predict_result":
+        return api_client.get_result(args["request_id"])
+
+    if tool_name == "muapi_upload_file":
+        return api_client.upload_file(args["file_path"])
+
+    raise ValueError(f"Unknown tool: {tool_name}")
+
+
+# ── MCP stdio server ──────────────────────────────────────────────────────────
+
+def _mcp_response(id: Any, result: Any) -> str:
+    return json.dumps({"jsonrpc": "2.0", "id": id, "result": result})
+
+
+def _mcp_error(id: Any, code: int, message: str) -> str:
+    return json.dumps({"jsonrpc": "2.0", "id": id, "error": {"code": code, "message": message}})
+
+
+def _tool_result(data: Any, is_error: bool = False) -> dict:
+    text = json.dumps(data) if isinstance(data, (dict, list)) else str(data)
+    result = {
+        "content": [{"type": "text", "text": text}],
+        "isError": is_error,
+    }
+    if not is_error and isinstance(data, dict):
+        result["structuredContent"] = data
+    return result
+
+
+def _handle_request(request: dict) -> str:
+    method = request.get("method", "")
+    req_id = request.get("id")
+    params = request.get("params", {})
+
+    if method == "initialize":
+        return _mcp_response(req_id, {
+            "protocolVersion": "2025-06-18",
+            "capabilities": {"tools": {"listChanged": False}},
+            "serverInfo": {"name": "muapi", "version": "0.1.0"},
+        })
+
+    if method == "tools/list":
+        tools_list = []
+        for t in TOOLS:
+            entry = {
+                "name":        t["name"],
+                "description": t["description"],
+                "inputSchema": t["inputSchema"],
+                "annotations": t.get("annotations", {}),
+            }
+            if "outputSchema" in t:
+                entry["outputSchema"] = t["outputSchema"]
+            tools_list.append(entry)
+        return _mcp_response(req_id, {"tools": tools_list})
+
+    if method == "tools/call":
+        tool_name = params.get("name", "")
+        arguments = params.get("arguments", {})
+        try:
+            result = _dispatch(tool_name, arguments)
+            return _mcp_response(req_id, _tool_result(result, is_error=False))
+        except api_client.MuapiError as e:
+            return _mcp_response(req_id, _tool_result({"error": str(e)}, is_error=True))
+        except ValueError as e:
+            return _mcp_error(req_id, -32602, str(e))
+        except Exception as e:
+            return _mcp_response(req_id, _tool_result({"error": str(e)}, is_error=True))
+
+    if method == "notifications/initialized":
+        return ""  # No response for notifications
+
+    # Unknown method
+    return _mcp_error(req_id, -32601, f"Method not found: {method}")
+
+
+@app.command("serve")
+def serve(
+    check_auth: bool = typer.Option(True, "--check-auth/--no-check-auth",
+                                    help="Verify API key is configured before starting"),
+):
+    """Start the muapi MCP server (stdio transport).
+
+    Add to Claude Desktop config:
+
+    \\b
+    {
+      "mcpServers": {
+        "muapi": {
+          "command": "muapi",
+          "args": ["mcp", "serve"],
+          "env": { "MUAPI_API_KEY": "your-key-here" }
+        }
+      }
+    }
+    """
+    if check_auth and not get_api_key():
+        sys.stderr.write(
+            json.dumps({"error": "No MUAPI_API_KEY configured. Set env var or run: muapi auth configure"}) + "\n"
+        )
+        sys.exit(3)
+
+    sys.stderr.write(json.dumps({"status": "muapi MCP server ready", "tools": len(TOOLS)}) + "\n")
+    sys.stderr.flush()
+
+    for line in sys.stdin:
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            request = json.loads(line)
+        except json.JSONDecodeError:
+            response = _mcp_error(None, -32700, "Parse error")
+            sys.stdout.write(response + "\n")
+            sys.stdout.flush()
+            continue
+
+        response = _handle_request(request)
+        if response:
+            sys.stdout.write(response + "\n")
+            sys.stdout.flush()

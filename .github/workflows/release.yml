@@ -1,0 +1,113 @@
+name: Release CLI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: macos-14          # Apple Silicon
+            arch: arm64
+            artifact: muapi-darwin-arm64
+          - os: macos-13          # Intel
+            arch: x86_64
+            artifact: muapi-darwin-x86_64
+          - os: ubuntu-22.04
+            arch: x86_64
+            artifact: muapi-linux-x86_64
+          - os: ubuntu-22.04-arm  # requires GitHub's ARM runner
+            arch: arm64
+            artifact: muapi-linux-arm64
+          - os: windows-latest
+            arch: x86_64
+            artifact: muapi-windows-x86_64.exe
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller
+          pip install -e ./cli
+
+      - name: Build binary
+        run: |
+          pyinstaller \
+            --onefile \
+            --name muapi \
+            --distpath ./dist \
+            cli/muapi/main.py
+        shell: bash
+
+      - name: Rename artifact (non-Windows)
+        if: runner.os != 'Windows'
+        run: mv dist/muapi dist/${{ matrix.artifact }}
+
+      - name: Rename artifact (Windows)
+        if: runner.os == 'Windows'
+        run: Move-Item dist/muapi.exe dist/${{ matrix.artifact }}
+        shell: pwsh
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.artifact }}
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Sync version
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          jq --arg v "$VERSION" '.version = $v' cli/npm/package.json > /tmp/pkg.json
+          mv /tmp/pkg.json cli/npm/package.json
+
+      - name: Publish to npm
+        run: npm publish --access public
+        working-directory: cli/npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build Python package
+        run: |
+          pip install hatch
+          hatch build
+        working-directory: cli
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: cli/dist/
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

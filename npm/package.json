@@ -1,0 +1,30 @@
+{
+  "name": "muapi-cli",
+  "version": "0.1.1",
+  "description": "Official CLI for muapi.ai — generate images, videos, and audio from your terminal",
+  "keywords": ["muapi", "ai", "generative", "image", "video", "audio", "cli", "mcp"],
+  "homepage": "https://muapi.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamurAIGPT/muapi-cli"
+  },
+  "license": "MIT",
+  "bin": {
+    "muapi": "./bin/muapi"
+  },
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "files": [
+    "bin/muapi",
+    "bin/muapi-darwin-arm64",
+    "bin/muapi-darwin-x86_64",
+    "bin/muapi-linux-x86_64",
+    "bin/muapi-linux-arm64",
+    "bin/muapi-windows-x86_64.exe",
+    "scripts/install.js"
+  ],
+  "engines": {
+    "node": ">=16"
+  }
+}
