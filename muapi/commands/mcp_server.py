@@ -278,6 +278,104 @@ TOOLS = [
             },
         },
     },
+    # ── Keys ─────────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_keys_list",
+        "description": "List all API keys on the authenticated muapi.ai account.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {"type": "object", "properties": {}},
+        "outputSchema": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id":           {"type": "integer"},
+                    "name":         {"type": "string"},
+                    "is_active":    {"type": "boolean"},
+                    "created_at":   {"type": "string"},
+                    "last_used_at": {"type": "string"},
+                },
+            },
+        },
+    },
+    {
+        "name": "muapi_keys_create",
+        "description": "Create a new API key for the authenticated account. The raw key is returned once — store it immediately.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "Label for the key", "default": "cli"},
+            },
+        },
+        "outputSchema": {
+            "type": "object",
+            "properties": {
+                "id":      {"type": "integer"},
+                "name":    {"type": "string"},
+                "api_key": {"type": "string", "description": "Raw API key — shown once"},
+            },
+            "required": ["api_key"],
+        },
+    },
+    {
+        "name": "muapi_keys_delete",
+        "description": "Delete an API key by ID.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "key_id": {"type": "integer", "description": "Key ID from muapi_keys_list"},
+            },
+            "required": ["key_id"],
+        },
+        "outputSchema": {
+            "type": "object",
+            "properties": {"message": {"type": "string"}},
+        },
+    },
+    # ── Account ──────────────────────────────────────────────────────────────
+    {
+        "name": "muapi_account_balance",
+        "description": "Get the current account balance for the authenticated muapi.ai user.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": True, "idempotentHint": True},
+        "inputSchema": {"type": "object", "properties": {}},
+        "outputSchema": {
+            "type": "object",
+            "properties": {
+                "balance":  {"type": "number", "description": "Current balance in USD"},
+                "currency": {"type": "string"},
+                "email":    {"type": "string"},
+            },
+            "required": ["balance", "currency"],
+        },
+    },
+    {
+        "name": "muapi_account_topup",
+        "description": "Create a Stripe checkout session to add credits to the muapi.ai account. Returns a checkout URL — open it in a browser to complete payment.",
+        "endpoint": None,
+        "annotations": {"readOnlyHint": False, "idempotentHint": False},
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "amount":   {"type": "integer", "description": "Amount in USD to add (minimum 1)", "default": 10, "minimum": 1},
+                "currency": {"type": "string", "default": "usd"},
+            },
+        },
+        "outputSchema": {
+            "type": "object",
+            "properties": {
+                "checkout_url": {"type": "string", "format": "uri"},
+                "amount":       {"type": "integer"},
+                "currency":     {"type": "string"},
+            },
+            "required": ["checkout_url"],
+        },
+    },
 ]
 
 
@@ -386,6 +484,71 @@ def _dispatch(tool_name: str, args: dict) -> dict:
     if tool_name == "muapi_upload_file":
         return api_client.upload_file(args["file_path"])
 
+    if tool_name == "muapi_keys_list":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured. Run: muapi auth configure")
+        resp = _httpx.get(f"{BASE_URL}/keys", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_keys_create":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured. Run: muapi auth configure")
+        resp = _httpx.post(
+            f"{BASE_URL}/keys",
+            json={"name": args.get("name", "cli")},
+            headers={"x-api-key": key},
+            timeout=30.0,
+        )
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_keys_delete":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured. Run: muapi auth configure")
+        resp = _httpx.delete(
+            f"{BASE_URL}/keys/{args['key_id']}",
+            headers={"x-api-key": key},
+            timeout=30.0,
+        )
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_account_balance":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured. Run: muapi auth configure")
+        resp = _httpx.get(f"{BASE_URL}/account/balance", headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
+    if tool_name == "muapi_account_topup":
+        from ..config import BASE_URL, get_api_key
+        import httpx as _httpx
+        key = get_api_key()
+        if not key:
+            raise ValueError("No API key configured. Run: muapi auth configure")
+        payload = {"amount": args.get("amount", 10), "currency": args.get("currency", "usd")}
+        resp = _httpx.post(f"{BASE_URL}/account/topup", json=payload, headers={"x-api-key": key}, timeout=30.0)
+        if resp.status_code >= 400:
+            raise api_client.MuapiError(resp.text, resp.status_code)
+        return resp.json()
+
     raise ValueError(f"Unknown tool: {tool_name}")
 
 
@@ -482,7 +645,7 @@ def serve(
         )
         sys.exit(3)
 
-    sys.stderr.write(json.dumps({"status": "muapi MCP server ready", "tools": len(TOOLS)}) + "\n")
+    sys.stderr.write(json.dumps({"status": "muapi MCP server ready", "tools": len(TOOLS), "version": "0.1.0"}) + "\n")
     sys.stderr.flush()
 
     for line in sys.stdin:

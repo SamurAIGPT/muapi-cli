@@ -1,8 +1,17 @@
 {
   "name": "muapi-cli",
-  "version": "0.1.2",
-  "description": "Official CLI for muapi.ai — generate images, videos, and audio from your terminal",
-  "keywords": ["muapi", "ai", "generative", "image", "video", "audio", "cli", "mcp"],
+  "version": "0.2.0",
+  "description": "Official CLI for muapi.ai \u2014 generate images, videos, and audio from your terminal",
+  "keywords": [
+    "muapi",
+    "ai",
+    "generative",
+    "image",
+    "video",
+    "audio",
+    "cli",
+    "mcp"
+  ],
   "homepage": "https://muapi.ai",
   "repository": {
     "type": "git",

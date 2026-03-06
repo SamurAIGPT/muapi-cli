@@ -5,7 +5,7 @@ import typer
 from rich import print as rprint
 
 from . import __version__
-from .commands import auth, audio, edit, enhance, image, models, predict, upload, video
+from .commands import auth, account, audio, config_cmd, docs, edit, enhance, image, keys, models, predict, upload, video
 from .commands import mcp_server
 
 app = typer.Typer(
@@ -18,7 +18,9 @@ app = typer.Typer(
 
 # ── Subcommand groups ──────────────────────────────────────────────────────────
 
-app.add_typer(auth.app,        name="auth",    help="Configure API key and authentication.")
+app.add_typer(auth.app,        name="auth",    help="Log in, register, or configure API key.")
+app.add_typer(account.app,     name="account", help="Check balance and top up credits.")
+app.add_typer(keys.app,        name="keys",    help="List, create, and delete API keys.")
 app.add_typer(image.app,       name="image",   help="Generate or edit images.")
 app.add_typer(video.app,       name="video",   help="Generate videos from text or images.")
 app.add_typer(audio.app,       name="audio",   help="Create or remix music and audio.")
@@ -27,6 +29,8 @@ app.add_typer(edit.app,        name="edit",    help="Edit videos (effects, lipsy
 app.add_typer(predict.app,     name="predict", help="Check or wait for async prediction results.")
 app.add_typer(upload.app,      name="upload",  help="Upload local files to get a hosted URL.")
 app.add_typer(models.app,      name="models",  help="Discover all available models.")
+app.add_typer(config_cmd.app,  name="config",  help="Get and set persistent CLI configuration.")
+app.add_typer(docs.app,        name="docs",    help="Access the muapi.ai API documentation.")
 app.add_typer(mcp_server.app,  name="mcp",     help="Run as an MCP server for AI agent integration.")
 
 

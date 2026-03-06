@@ -60,6 +60,42 @@ def save_api_key(api_key: str) -> str:
     return "file"
 
 
+def get_setting(key: str) -> Optional[str]:
+    """Read a value from the settings section of the config file."""
+    if _CONFIG_FILE.exists():
+        try:
+            data = json.loads(_CONFIG_FILE.read_text())
+            return data.get("settings", {}).get(key)
+        except Exception:
+            pass
+    return None
+
+
+def set_setting(key: str, value: str) -> None:
+    """Write a value to the settings section of the config file."""
+    _CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    existing: dict = {}
+    if _CONFIG_FILE.exists():
+        try:
+            existing = json.loads(_CONFIG_FILE.read_text())
+        except Exception:
+            pass
+    existing.setdefault("settings", {})[key] = value
+    _CONFIG_FILE.write_text(json.dumps(existing, indent=2))
+    _CONFIG_FILE.chmod(0o600)
+
+
+def get_all_settings() -> dict:
+    """Return all settings as a dict."""
+    if _CONFIG_FILE.exists():
+        try:
+            data = json.loads(_CONFIG_FILE.read_text())
+            return data.get("settings", {})
+        except Exception:
+            pass
+    return {}
+
+
 def delete_api_key() -> None:
     ok, _ = _try_keyring()
     if ok:
