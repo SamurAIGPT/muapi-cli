@@ -9,7 +9,7 @@ const path  = require("path");
 const https = require("https");
 
 const VERSION = require("../package.json").version;
-const REPO    = "Anil-matcha/muapiapp";
+const REPO    = "SamurAIGPT/muapi-cli";
 const BIN_DIR = path.join(__dirname, "..", "bin");
 const BASE    = `https://github.com/${REPO}/releases/download/v${VERSION}`;
 
