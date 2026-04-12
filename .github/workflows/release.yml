@@ -38,7 +38,7 @@ jobs:
       - name: Install CLI + PyInstaller
         run: |
           pip install --upgrade pip
-          pip install -e .
+          pip install .
           pip install pyinstaller
 
       - name: Build binary (Unix)
