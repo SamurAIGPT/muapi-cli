@@ -27,5 +27,8 @@ if (!binPath || !fs.existsSync(binPath)) {
   process.exit(1);
 }
 
-const result = spawnSync(binPath, process.argv.slice(2), { stdio: "inherit" });
+const result = spawnSync(binPath, process.argv.slice(2), {
+  stdio: "inherit",
+  argv0: "muapi",
+});
 process.exit(result.status ?? 1);
