@@ -187,13 +187,52 @@ muapi predict wait <request_id>
 
 ## MCP Server
 
-Run as a Model Context Protocol server for Claude Desktop, Cursor, or any MCP-compatible agent:
+muapi supports two MCP transport modes. Both expose the same **19 tools**: image generate/edit, video generate/from-image, audio create/from-text, enhance (upscale/bg-remove/face-swap/ghibli), edit lipsync/clipping, predict result, upload file, keys list/create/delete, account balance/topup.
+
+### Option 1 — Hosted (Recommended, no CLI required)
+
+The hosted MCP server at `https://api.muapi.ai/mcp` uses the standard Streamable HTTP transport. Any MCP client can connect with just your API key — no CLI install needed.
+
+**Claude Code:**
+```bash
+claude mcp add --transport http muapi \
+  https://api.muapi.ai/mcp \
+  --header "Authorization: Bearer YOUR_MUAPI_KEY"
+```
+
+**Cursor** — add to `mcp.json` (`Cmd+Shift+P` → Open MCP settings):
+```json
+{
+  "mcpServers": {
+    "muapi": {
+      "url": "https://api.muapi.ai/mcp",
+      "headers": { "Authorization": "Bearer YOUR_MUAPI_KEY" }
+    }
+  }
+}
+```
+
+**Windsurf** — open **Settings → MCP**:
+```json
+{
+  "mcpServers": {
+    "muapi": {
+      "serverUrl": "https://api.muapi.ai/mcp",
+      "headers": { "Authorization": "Bearer YOUR_MUAPI_KEY" }
+    }
+  }
+}
+```
+
+### Option 2 — stdio via CLI (Claude Desktop)
+
+Run the CLI as a local stdio MCP server. Requires the CLI to be installed.
 
 ```bash
 muapi mcp serve
 ```
 
-**Claude Desktop config** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+**Claude Desktop** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 ```json
 {
   "mcpServers": {
@@ -206,7 +245,9 @@ muapi mcp serve
 }
 ```
 
-Exposes **19 tools**: image generate/edit, video generate/from-image, audio create/from-text, enhance (upscale/bg-remove/face-swap/ghibli), edit lipsync/clipping, predict result, upload file, keys list/create/delete, account balance/topup.
+**Any stdio-compatible client** — use the `command` + `args` pattern above, substituting your client's config format.
+
+> For more details on the self-hosted MCP server see [muapi-mcp-server](https://github.com/SamurAIGPT/muapi-mcp-server).
 
 ## Agentic Pipeline Examples
 
