@@ -26,6 +26,7 @@ def effects(
     image_url: str = typer.Option(None, "--image", "-i", help="Source image URL (for image/wan effects)"),
     effect: str = typer.Option(..., "--effect", "-e", help="Effect name/prompt"),
     mode: str = typer.Option("video", "--mode", "-m", help="'video', 'image', or 'wan'"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
@@ -35,16 +36,19 @@ def effects(
         if not image_url:
             error_exit("--image required for wan effects mode")
         payload = {"image_url": image_url, "effect": effect}
+        if webhook: payload["webhook_url"] = webhook
         _run("Applying WAN effects", "generate_wan_ai_effects", payload, wait, download, output_json)
     elif mode == "image":
         if not image_url:
             error_exit("--image required for image effects mode")
         payload = {"image_url": image_url, "effect": effect}
+        if webhook: payload["webhook_url"] = webhook
         _run("Applying image effects", "image-effects", payload, wait, download, output_json)
     else:
         if not video_url:
             error_exit("--video required for video effects mode")
         payload = {"video_url": video_url, "effect": effect}
+        if webhook: payload["webhook_url"] = webhook
         _run("Applying video effects", "video-effects", payload, wait, download, output_json)
 
 
@@ -53,6 +57,7 @@ def lipsync(
     video_url: str = typer.Option(..., "--video", "-v", help="Source video URL"),
     audio_url: str = typer.Option(..., "--audio", "-a", help="Audio file URL"),
     model: str = typer.Option("sync", "--model", "-m", help="Model: sync, latentsync, creatify, veed"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
@@ -67,6 +72,7 @@ def lipsync(
     if model not in endpoint_map:
         error_exit(f"Unknown lipsync model '{model}'. Choices: {', '.join(endpoint_map)}")
     payload = {"video_url": video_url, "audio_url": audio_url}
+    if webhook: payload["webhook_url"] = webhook
     _run(f"Lipsync ({model})", endpoint_map[model], payload, wait, download, output_json)
 
 
@@ -74,12 +80,14 @@ def lipsync(
 def dance(
     image_url: str = typer.Option(..., "--image", "-i", help="Person image URL"),
     video_url: str = typer.Option(..., "--video", "-v", help="Dance reference video URL"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """Make a person dance by referencing a dance video."""
     payload = {"image_url": image_url, "video_url": video_url}
+    if webhook: payload["webhook_url"] = webhook
     _run("Generating dance", "dance", payload, wait, download, output_json)
 
 
@@ -88,6 +96,7 @@ def dress(
     image_url: str = typer.Option(..., "--image", "-i", help="Person image URL"),
     dress_url: str = typer.Option(None, "--dress", "-D", help="Dress/clothing image URL"),
     prompt: str = typer.Option("", "--prompt", "-p", help="Dress description prompt"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
@@ -96,6 +105,7 @@ def dress(
     payload: dict = {"image_url": image_url, "prompt": prompt}
     if dress_url:
         payload["dress_url"] = dress_url
+    if webhook: payload["webhook_url"] = webhook
     _run("Changing dress", "ai-dress-change", payload, wait, download, output_json)
 
 
@@ -104,6 +114,7 @@ def clipping(
     video_url: str = typer.Argument(..., help="Source video URL"),
     num_highlights: int = typer.Option(3, "--highlights", "-n", help="Number of highlight clips"),
     aspect_ratio: str = typer.Option("9:16", "--aspect-ratio", "-a"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
@@ -114,4 +125,5 @@ def clipping(
         "num_highlights": num_highlights,
         "aspect_ratio": aspect_ratio,
     }
+    if webhook: payload["webhook_url"] = webhook
     _run("AI clipping", "ai-clipping", payload, wait, download, output_json)
