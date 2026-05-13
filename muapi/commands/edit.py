@@ -64,10 +64,15 @@ def lipsync(
 ):
     """Sync lip movements to audio."""
     endpoint_map = {
-        "sync":       "lipsync",
-        "latentsync": "latentsync",
+        "sync":       "sync-lipsync",
+        "latentsync": "latentsync-video",
         "creatify":   "creatify-lipsync",
         "veed":       "veed-lipsync",
+        "ltx-2":      "ltx-2-19b-lipsync",
+        "ltx-2.3":    "ltx-2.3-lipsync",
+        "kling-v1":   "kling-v1-avatar-pro",
+        "kling-v2":   "kling-v2-avatar-pro",
+        "wan2.2":     "wan2.2-speech-to-video",
     }
     if model not in endpoint_map:
         error_exit(f"Unknown lipsync model '{model}'. Choices: {', '.join(endpoint_map)}")
@@ -88,23 +93,23 @@ def dance(
     """Make a person dance by referencing a dance video."""
     payload = {"image_url": image_url, "video_url": video_url}
     if webhook: payload["webhook_url"] = webhook
-    _run("Generating dance", "dance", payload, wait, download, output_json)
+    _run("Generating dance", "ai-dance-effects", payload, wait, download, output_json)
 
 
 @app.command("dress")
 def dress(
-    image_url: str = typer.Option(..., "--image", "-i", help="Person image URL"),
-    dress_url: str = typer.Option(None, "--dress", "-D", help="Dress/clothing image URL"),
-    prompt: str = typer.Option("", "--prompt", "-p", help="Dress description prompt"),
+    image_url: str = typer.Option(..., "--image", "-i", help="Person/model image URL"),
+    dress_url: str = typer.Option(..., "--dress", "-D", help="Garment/clothing image URL"),
     webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
     wait: bool = typer.Option(True, "--wait/--no-wait"),
     download: Optional[str] = typer.Option(None, "--download", "-d"),
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
-    """Change clothing/dress in an image."""
-    payload: dict = {"image_url": image_url, "prompt": prompt}
-    if dress_url:
-        payload["dress_url"] = dress_url
+    """Change clothing/dress in an image (ai-dress-change)."""
+    payload: dict = {
+        "model_image_url": image_url,
+        "garment_image_url": dress_url,
+    }
     if webhook: payload["webhook_url"] = webhook
     _run("Changing dress", "ai-dress-change", payload, wait, download, output_json)
 

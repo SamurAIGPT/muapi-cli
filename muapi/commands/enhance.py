@@ -139,7 +139,7 @@ def product_shot(
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """Generate professional product photography."""
-    payload = _payload_with_webhook({"image_url": image_url, "background_prompt": background_prompt}, webhook)
+    payload = _payload_with_webhook({"image_url": image_url, "scene_description": background_prompt}, webhook)
     _run("Generating product shot", "ai-product-shot", payload, wait, download, output_json)
 
 
@@ -153,5 +153,5 @@ def erase(
     output_json: bool = typer.Option(False, "--output-json", "-j"),
 ):
     """Erase objects from an image using a mask."""
-    payload = _payload_with_webhook({"image_url": image_url, "mask_url": mask_url}, webhook)
+    payload = _payload_with_webhook({"image_url": image_url, "mask_image_url": mask_url}, webhook)
     _run("Erasing object", "ai-object-eraser", payload, wait, download, output_json)

@@ -50,9 +50,24 @@ TOOLS = [
             "properties": {
                 "prompt":       {"type": "string",  "description": "Text description of the image to generate"},
                 "model":        {"type": "string",  "description": "Model name", "default": "flux-dev",
-                                 "enum": ["flux-dev","flux-schnell","flux-kontext-dev","flux-kontext-pro",
-                                          "flux-kontext-max","hidream-fast","hidream-dev","hidream-full",
-                                          "wan2.1","reve","gpt4o","midjourney","seedream","qwen"]},
+                                 "enum": ["flux-dev","flux-schnell","flux-krea",
+                                          "flux-kontext-dev","flux-kontext-pro","flux-kontext-max",
+                                          "flux-2-dev","flux-2-pro","flux-2-flex",
+                                          "flux-2-klein-4b","flux-2-klein-9b",
+                                          "hidream-fast","hidream-dev","hidream-full",
+                                          "wan2.1","wan2.5","wan2.6","wan2.7","wan2.7-pro",
+                                          "gpt4o","gpt-image","gpt-image-2",
+                                          "imagen4","imagen4-fast","imagen4-ultra",
+                                          "midjourney","midjourney-v7","midjourney-v8","midjourney-niji",
+                                          "seedream","seedream-v3","seedream-v4","seedream-v4.5","seedream-5",
+                                          "qwen","qwen-2","qwen-2-pro",
+                                          "nano-banana","nano-banana-pro","nano-banana-2",
+                                          "kling-o1","kling-o3",
+                                          "hunyuan","hunyuan-3","ideogram","reve",
+                                          "z-image","z-image-turbo",
+                                          "leonardo-lucid","leonardo-phoenix",
+                                          "grok","grok-quality","chroma",
+                                          "sdxl","perfect-pony","neta-lumina"]},
                 "width":        {"type": "integer", "description": "Image width in pixels", "default": 1024},
                 "height":       {"type": "integer", "description": "Image height in pixels", "default": 1024},
                 "num_images":   {"type": "integer", "description": "Number of images (1-4)", "default": 1, "minimum": 1, "maximum": 4},
@@ -74,8 +89,24 @@ TOOLS = [
                 "image_url":    {"type": "string", "description": "Source image URL", "format": "uri"},
                 "model":        {"type": "string", "default": "flux-kontext-dev",
                                  "enum": ["flux-kontext-dev","flux-kontext-pro","flux-kontext-max",
-                                          "flux-kontext-effects","gpt4o","reve","seededit",
-                                          "midjourney","midjourney-style","midjourney-omni","qwen"]},
+                                          "flux-kontext-effects",
+                                          "flux-2-dev-edit","flux-2-pro-edit","flux-2-flex-edit",
+                                          "flux-2-klein-4b-edit","flux-2-klein-9b-edit",
+                                          "gpt4o","gpt4o-edit","gpt-image-edit","gpt-image-2-edit",
+                                          "reve","seededit",
+                                          "seedream-edit","seedream-v4.5-edit","seedream-5-edit",
+                                          "seedance-character",
+                                          "midjourney","midjourney-style","midjourney-omni",
+                                          "qwen","qwen-plus","qwen-plus-lora","qwen-2511",
+                                          "qwen-2-edit","qwen-2-pro-edit",
+                                          "nano-banana-edit","nano-banana-effects",
+                                          "nano-banana-2-edit","nano-banana-pro-edit",
+                                          "kling-o1-edit","kling-o3-edit",
+                                          "wan2.5-edit","wan2.6-edit","wan2.7-edit","wan2.7-edit-pro",
+                                          "ideogram-character","ideogram-reframe",
+                                          "flux-redux","flux-pulid","grok",
+                                          "photo-pack","portrait-stylist",
+                                          "minimax-subject","vidu-q2-ref"]},
                 "aspect_ratio": {"type": "string", "default": "1:1"},
                 "num_images":   {"type": "integer", "default": 1, "minimum": 1, "maximum": 4},
             },
@@ -94,9 +125,25 @@ TOOLS = [
             "properties": {
                 "prompt":       {"type": "string", "description": "Video description prompt"},
                 "model":        {"type": "string", "default": "kling-master",
-                                 "enum": ["veo3","veo3-fast","kling-master","wan2.1","wan2.2",
-                                          "seedance-pro","seedance-lite","hunyuan","runway",
-                                          "pixverse","vidu","minimax-std","minimax-pro"]},
+                                 "enum": ["veo3","veo3-fast","veo3.1","veo3.1-fast","veo3.1-4k",
+                                          "veo3.1-lite","veo4",
+                                          "kling-master","kling-v2.5-pro","kling-v2.6-pro",
+                                          "kling-v3-pro","kling-v3-std","kling-v3-4k",
+                                          "kling-v3-omni","kling-v3-omni-std","kling-v3-omni-4k",
+                                          "kling-o1",
+                                          "wan2.1","wan2.2","wan2.2-5b-fast",
+                                          "wan2.5","wan2.5-fast","wan2.6","wan2.7",
+                                          "seedance-pro","seedance-pro-fast","seedance-lite",
+                                          "seedance-v1.5","seedance-v1.5-fast","seedance-v2",
+                                          "seedance-2","seedance-2-fast",
+                                          "seedance-2-vip","seedance-2-vip-fast",
+                                          "hunyuan","hunyuan-fast","runway",
+                                          "pixverse","pixverse-v4.5","pixverse-v5","pixverse-v5.5","pixverse-v6",
+                                          "vidu","vidu-q2-pro","vidu-q2-turbo","vidu-q3-pro","vidu-q3-turbo",
+                                          "minimax-std","minimax-pro","minimax-2.3-pro","minimax-2.3-std",
+                                          "ltx-2","ltx-2-fast","ltx-2-19b","ltx-2.3",
+                                          "sora","sora-2","sora-2-pro","sora-2-standard","sora-2-storyboard",
+                                          "ovi","grok","happy-horse","happy-horse-720"]},
                 "duration":     {"type": "integer", "description": "Duration in seconds", "default": 5},
                 "aspect_ratio": {"type": "string", "default": "16:9"},
             },
@@ -115,9 +162,34 @@ TOOLS = [
                 "prompt":       {"type": "string", "description": "Motion/animation prompt"},
                 "image_url":    {"type": "string", "description": "Source image URL", "format": "uri"},
                 "model":        {"type": "string", "default": "kling-std",
-                                 "enum": ["veo3","veo3-fast","kling-std","kling-pro","kling-master",
-                                          "wan2.1","wan2.2","seedance-pro","seedance-lite","hunyuan",
-                                          "runway","pixverse","vidu","midjourney","minimax-std","minimax-pro"]},
+                                 "enum": ["veo3","veo3-fast","veo3.1","veo3.1-fast","veo3.1-ref",
+                                          "veo3.1-lite","veo4",
+                                          "kling-std","kling-pro","kling-master",
+                                          "kling-v2.5-pro","kling-v2.5-std","kling-v2.6-pro",
+                                          "kling-v3-pro","kling-v3-std","kling-v3-4k",
+                                          "kling-v3-omni","kling-v3-omni-std","kling-v3-omni-4k",
+                                          "kling-o1","kling-o1-std","kling-o1-ref",
+                                          "wan2.1","wan2.1-ref","wan2.2","wan2.2-spicy",
+                                          "wan2.5","wan2.5-fast","wan2.6","wan2.7","wan2.7-ref",
+                                          "seedance-pro","seedance-pro-fast","seedance-lite",
+                                          "seedance-lite-ref","seedance-v1.5","seedance-v1.5-fast",
+                                          "seedance-v2","seedance-v2-omni",
+                                          "seedance-2","seedance-2-fast","seedance-2-flf",
+                                          "seedance-2-omni","seedance-2-vip",
+                                          "hunyuan","runway","runway-act-two",
+                                          "pixverse-v4.5","pixverse-v5","pixverse-v5.5",
+                                          "pixverse-v6","pixverse-v6-trans",
+                                          "vidu","vidu-q1-ref","vidu-q2-pro","vidu-q2-turbo",
+                                          "vidu-q2-ref","vidu-q2-start-end",
+                                          "vidu-q3-pro","vidu-q3-turbo","vidu-q3-flf",
+                                          "midjourney",
+                                          "minimax-std","minimax-pro","minimax-2.3-pro",
+                                          "minimax-2.3-std","minimax-2.3-fast",
+                                          "ltx-2","ltx-2-fast","ltx-2-19b","ltx-2.3",
+                                          "sora-2","sora-2-pro","sora-2-standard",
+                                          "ovi","grok","leonardo",
+                                          "happy-horse","happy-horse-ref",
+                                          "infinitetalk","video-effects","wan-effects"]},
                 "duration":     {"type": "integer", "default": 5},
                 "aspect_ratio": {"type": "string", "default": "16:9"},
             },
@@ -222,7 +294,9 @@ TOOLS = [
             "properties": {
                 "video_url": {"type": "string", "format": "uri"},
                 "audio_url": {"type": "string", "format": "uri"},
-                "model":     {"type": "string", "enum": ["sync","latentsync","creatify","veed"], "default": "sync"},
+                "model":     {"type": "string", "default": "sync",
+                              "enum": ["sync","latentsync","creatify","veed",
+                                       "ltx-2","ltx-2.3","kling-v1","kling-v2","wan2.2"]},
             },
             "required": ["video_url", "audio_url"],
         },
@@ -458,13 +532,23 @@ TOOLS = [
 
 def _dispatch(tool_name: str, args: dict) -> dict:
     """Call the appropriate muapi endpoint for a tool name."""
-    from .image   import T2I_MODELS, I2I_MODELS
-    from .video   import T2V_MODELS, I2V_MODELS
+    from .image   import T2I_MODELS, I2I_MODELS, WIDTH_HEIGHT_MODELS, LIST_INPUT_MODELS
+    from .video   import T2V_MODELS, I2V_MODELS, LIST_INPUT_I2V
     from .audio   import app as _  # import to ensure module loaded
     from .enhance import app as _
     from .edit    import app as _
 
-    LIPSYNC_MAP = {"sync": "lipsync", "latentsync": "latentsync", "creatify": "creatify-lipsync", "veed": "veed-lipsync"}
+    LIPSYNC_MAP = {
+        "sync":       "sync-lipsync",
+        "latentsync": "latentsync-video",
+        "creatify":   "creatify-lipsync",
+        "veed":       "veed-lipsync",
+        "ltx-2":      "ltx-2-19b-lipsync",
+        "ltx-2.3":    "ltx-2.3-lipsync",
+        "kling-v1":   "kling-v1-avatar-pro",
+        "kling-v2":   "kling-v2-avatar-pro",
+        "wan2.2":     "wan2.2-speech-to-video",
+    }
 
     if tool_name == "muapi_image_generate":
         model    = args.get("model", "flux-dev")
@@ -472,11 +556,11 @@ def _dispatch(tool_name: str, args: dict) -> dict:
         if not endpoint:
             raise ValueError(f"Unknown image model: {model}")
         payload  = {"prompt": args["prompt"], "num_images": args.get("num_images", 1)}
-        if model.startswith("flux-kontext") or model in ("midjourney", "seedream", "qwen", "reve"):
-            payload["aspect_ratio"] = args.get("aspect_ratio", "1:1")
-        else:
+        if model in WIDTH_HEIGHT_MODELS:
             payload["width"]  = args.get("width",  1024)
             payload["height"] = args.get("height", 1024)
+        else:
+            payload["aspect_ratio"] = args.get("aspect_ratio", "1:1")
         return api_client.generate(endpoint, payload)
 
     if tool_name == "muapi_image_edit":
@@ -489,7 +573,7 @@ def _dispatch(tool_name: str, args: dict) -> dict:
             "aspect_ratio": args.get("aspect_ratio", "1:1"),
             "num_images":   args.get("num_images", 1),
         }
-        if model.startswith("flux-kontext"):
+        if model in LIST_INPUT_MODELS:
             payload["images_list"] = [args["image_url"]]
         else:
             payload["image_url"] = args["image_url"]
@@ -511,11 +595,16 @@ def _dispatch(tool_name: str, args: dict) -> dict:
         endpoint = I2V_MODELS.get(model)
         if not endpoint:
             raise ValueError(f"Unknown i2v model: {model}")
-        return api_client.generate(endpoint, {
-            "prompt": args["prompt"], "image_url": args["image_url"],
+        payload = {
+            "prompt": args["prompt"],
             "duration": args.get("duration", 5),
             "aspect_ratio": args.get("aspect_ratio", "16:9"),
-        })
+        }
+        if model in LIST_INPUT_I2V:
+            payload["images_list"] = [args["image_url"]]
+        else:
+            payload["image_url"] = args["image_url"]
+        return api_client.generate(endpoint, payload)
 
     if tool_name == "muapi_audio_create":
         return api_client.generate("suno-create-music", {
