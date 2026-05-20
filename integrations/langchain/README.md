@@ -6,10 +6,13 @@ loader, and a Deep Agents recipe.
 
 ## Install
 
+Until the PyPI release lands, install directly from the repo:
+
 ```bash
-pip install muapi-langchain
-# for the Deep Agents demo:
-pip install "muapi-langchain[deepagents]"
+pip install "git+https://github.com/SamurAIGPT/muapi-cli.git#subdirectory=integrations/langchain"
+
+# For the Deep Agents demo:
+pip install deepagents langgraph langchain-openai
 ```
 
 Set your API key:

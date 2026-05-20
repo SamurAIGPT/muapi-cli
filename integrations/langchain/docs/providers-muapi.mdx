@@ -23,16 +23,16 @@ key. Power your agentic media workflows with:
 
   Or store it in the OS keychain via the official CLI: `muapi auth configure`.
 
-* Install the integration:
+* Install the integration (PyPI release coming; install from source for now):
 
   ```bash
-  pip install muapi-langchain
+  pip install "git+https://github.com/SamurAIGPT/muapi-cli.git#subdirectory=integrations/langchain"
   ```
 
-For the Deep Agents recipe below, also install the `deepagents` extras:
+For the Deep Agents recipe below, also install:
 
 ```bash
-pip install "muapi-langchain[deepagents]"
+pip install deepagents langgraph langchain-openai
 ```
 
 ## Document loader

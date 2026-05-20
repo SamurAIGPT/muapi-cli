@@ -8,7 +8,8 @@ human approval via `interrupt_on`.
 Run:
     export MUAPI_API_KEY="..."        # or muapi auth configure
     export OPENAI_API_KEY="..."
-    pip install muapi-langchain[deepagents]
+    pip install "git+https://github.com/SamurAIGPT/muapi-cli.git#subdirectory=integrations/langchain"
+    pip install deepagents langgraph langchain-openai
     python deep_agents_demo.py
 """
 from __future__ import annotations
