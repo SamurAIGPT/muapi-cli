@@ -49,7 +49,39 @@ muapi account balance
 # Wait for an existing job
 muapi predict wait <request_id>
 ```
+## Python SDK
 
+Generate an image:
+
+```python
+from muapi import MuAPI
+
+client = MuAPI()
+
+result = client.images.generate(
+    prompt="A futuristic city at sunset",
+    model="flux-dev"
+)
+
+print(result)
+
+```
+
+Generate a video:
+
+```python
+from muapi import MuAPI
+
+client = MuAPI()
+
+result = client.videos.generate(
+    prompt="A dragon flying through clouds",
+    model="kling-master",
+    wait=False
+)
+
+print(result)
+```
 ## Commands
 
 ### `muapi auth`

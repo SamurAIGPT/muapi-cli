@@ -13,3 +13,21 @@ npm/bin/muapi-linux-x86_64
 npm/bin/muapi-linux-arm64
 npm/bin/muapi-windows-x86_64.exe
 .DS_Store
+# Local SDK testing files
+test_all.py
+test_predictions.py
+test_req.py
+test_sdk.py
+test_sdk_videos.py
+test_uploads.py
+
+# Local test assets
+image.png
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
