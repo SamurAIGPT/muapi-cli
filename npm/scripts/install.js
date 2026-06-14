@@ -22,7 +22,8 @@ const NAME_MAP = {
 };
 
 const key     = `${process.platform}-${process.arch}`;
-const binName = NAME_MAP[key];
+// On Apple Silicon, Node may report x64 when running under Rosetta — fall back to arm64.
+const binName = NAME_MAP[key] || (process.platform === "darwin" ? NAME_MAP["darwin-arm64"] : undefined);
 
 if (!binName) {
   console.warn(`[muapi] Unsupported platform: ${key}. Install via pip: pip install muapi-cli`);
