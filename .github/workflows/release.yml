@@ -153,6 +153,8 @@ jobs:
     name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
