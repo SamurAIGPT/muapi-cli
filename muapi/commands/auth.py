@@ -1,16 +1,121 @@
 """muapi auth — configure API key and inspect identity."""
-import typer
-import httpx
-from rich.prompt import Prompt
+import os
+import re
+import subprocess
+import sys
+import webbrowser
 
-from ..config import delete_api_key, get_api_key, save_api_key, BASE_URL
+import httpx
+import typer
+from rich.prompt import Confirm, Prompt
+
+from ..config import BASE_URL, _CONFIG_FILE, delete_api_key, get_api_key, get_key_info, save_api_key
 from .. import exitcodes
 from ..utils import console, error_exit, out
 
 app = typer.Typer(help="Manage authentication and API key.")
 
-# Auth endpoints live at the root host, not under /api/v1
 _AUTH_BASE = BASE_URL.replace("/api/v1", "")
+_ACCESS_KEYS_URL = "https://muapi.ai/access-keys"
+
+LINKS = {
+    "dashboard":   "https://muapi.ai/dashboard",
+    "access-keys": _ACCESS_KEYS_URL,
+    "models":      "https://muapi.ai/models",
+    "docs":        "https://muapi.ai/docs",
+    "pricing":     "https://muapi.ai/pricing",
+}
+
+
+def _mask(key: str) -> str:
+    if len(key) < 12:
+        return "••••"
+    return key[:8] + "…" + key[-4:]
+
+
+def _looks_like_key(s: str) -> bool:
+    s = s.strip()
+    return bool(re.match(r'^[A-Za-z0-9_\-]{20,}$', s) and '\n' not in s)
+
+
+def _read_clipboard() -> str | None:
+    try:
+        if sys.platform == "darwin":
+            r = subprocess.run(["pbpaste"], capture_output=True, text=True, timeout=2)
+            return r.stdout.strip() or None
+        if sys.platform.startswith("linux"):
+            for cmd in (["xclip", "-o"], ["xsel", "--clipboard", "--output"]):
+                try:
+                    r = subprocess.run(cmd, capture_output=True, text=True, timeout=2)
+                    if r.returncode == 0:
+                        return r.stdout.strip() or None
+                except FileNotFoundError:
+                    continue
+        if sys.platform == "win32":
+            r = subprocess.run(
+                ["powershell", "-command", "Get-Clipboard"],
+                capture_output=True, text=True, timeout=2,
+            )
+            return r.stdout.strip() or None
+    except Exception:
+        pass
+    return None
+
+
+def _validate_key(api_key: str) -> tuple[bool, str]:
+    """Validate key against the live API. Returns (ok, error_msg)."""
+    try:
+        resp = httpx.get(
+            f"{BASE_URL}/account/balance",
+            headers={"x-api-key": api_key},
+            timeout=15.0,
+        )
+        if resp.status_code in (401, 403):
+            return False, "API rejected the key (401/403)."
+        if resp.status_code >= 400:
+            return False, f"API returned {resp.status_code}."
+        return True, ""
+    except httpx.RequestError as e:
+        return False, f"Could not reach {BASE_URL}: {e}"
+
+
+def _find_project_config() -> str | None:
+    """Walk up from CWD looking for muapi.json."""
+    from pathlib import Path
+    d = Path.cwd()
+    while True:
+        candidate = d / "muapi.json"
+        if candidate.exists():
+            return str(candidate)
+        parent = d.parent
+        if parent == d:
+            return None
+        d = parent
+
+
+def _do_save(api_key: str) -> None:
+    with console.status("[dim]Validating with api.muapi.ai…[/dim]"):
+        ok, reason = _validate_key(api_key)
+
+    if not ok:
+        console.print(f"[bold red]✖[/bold red] {reason}")
+        console.print()
+        console.print(f"[dim]  Double-check at [/dim][cyan]{_ACCESS_KEYS_URL}[/cyan]")
+        console.print("[dim]  Or set [/dim][cyan]MUAPI_API_KEY[/cyan][dim] in your shell and skip this step.[/dim]\n")
+        raise typer.Exit(exitcodes.AUTH_ERROR)
+
+    location = save_api_key(api_key)
+    location_display = "OS keychain" if location == "keychain" else str(_CONFIG_FILE)
+    console.print("[bold green]✔[/bold green] Signed in.")
+    console.print()
+    console.print(f"  [dim]Key:    [/dim][green]{_mask(api_key)}[/green]")
+    console.print(f"  [dim]Stored: [/dim][cyan]{location_display}[/cyan]")
+    console.print()
+    console.print("[bold]Try it:[/bold]")
+    console.print("  [cyan]muapi account balance[/cyan]")
+    console.print("  [cyan]muapi image generate -p \"a cyberpunk skyline at golden hour\"[/cyan]")
+    console.print("  [cyan]muapi video generate -p \"drone shot over snowy peaks\" --model kling-master[/cyan]")
+    console.print()
 
 
 @app.command("login")
@@ -165,25 +270,85 @@ def reset_password(
 
 @app.command("configure")
 def configure(
-    api_key: str = typer.Option(None, "--api-key", "-k", help="API key (will prompt if omitted)"),
+    api_key: str = typer.Option(None, "--api-key", "-k", help="API key (skips all prompts)"),
+    no_browser: bool = typer.Option(False, "--no-browser", help="Skip opening the access-keys page"),
 ):
-    """Save your muapi API key to the OS keychain (or config file)."""
+    """Save your muapi API key — opens browser, detects clipboard, validates before saving."""
+    if api_key:
+        _do_save(api_key.strip())
+        return
+
+    console.print()
+    console.print("[bold magenta]  Welcome to muapi.[/bold magenta]")
+    console.print("[dim]  Sign in once and you're set on this machine.[/dim]\n")
+
+    if not no_browser:
+        console.print(f"[bold]  1.[/bold] Opening [cyan]{_ACCESS_KEYS_URL}[/cyan]")
+        try:
+            webbrowser.open(_ACCESS_KEYS_URL)
+        except Exception:
+            console.print("[dim]     (browser launch failed — open the link manually)[/dim]")
+        console.print("[bold]  2.[/bold] Copy your API key")
+        console.print("[bold]  3.[/bold] Paste below — we'll validate it automatically\n")
+
+    # Clipboard detection
+    detected: str | None = None
+    clip = _read_clipboard()
+    if clip and _looks_like_key(clip):
+        detected = clip
+
+    if detected:
+        use_it = Confirm.ask(
+            f"  Detected a key on your clipboard ({_mask(detected)}). Use it?",
+            default=True,
+            console=console,
+        )
+        if use_it:
+            api_key = detected
+
     if not api_key:
-        api_key = Prompt.ask("[bold]Enter your muapi API key[/bold]", password=True, console=console)
+        api_key = Prompt.ask("[bold]  Paste your API key[/bold]", password=True, console=console)
+        api_key = api_key.strip()
+
     if not api_key:
-        error_exit("No API key provided.")
-    location = save_api_key(api_key.strip())
-    console.print(f"[green]API key saved to {location}.[/green]")
+        error_exit("No API key provided.", exitcodes.AUTH_ERROR)
+
+    _do_save(api_key)
+
+
+@app.command("status")
+def status():
+    """Show the active API key, config location, base URL, and quick links."""
+    key, source = get_key_info()
+
+    console.print()
+    console.print("[bold]muapi CLI status[/bold]")
+    if key:
+        console.print(f"  [dim]API key:  [/dim][green]{_mask(key)}[/green]")
+    else:
+        console.print(f"  [dim]API key:  [/dim][red]not set — run [bold]muapi auth configure[/bold][/red]")
+    console.print(f"  [dim]Source:   [/dim][cyan]{source}[/cyan]")
+    console.print(f"  [dim]Base URL: [/dim][cyan]{BASE_URL}[/cyan]")
+    console.print(f"  [dim]Config:   [/dim][cyan]{_CONFIG_FILE}[/cyan]")
+
+    project_file = _find_project_config()
+    if project_file:
+        console.print(f"  [dim]Project:  [/dim][cyan]{project_file}[/cyan] [dim](muapi.json detected)[/dim]")
+
+    console.print()
+    console.print("[bold]Useful links[/bold]")
+    width = max(len(k) for k in LINKS)
+    for name, url in LINKS.items():
+        console.print(f"  [dim]{name.ljust(width)}[/dim]  [cyan]{url}[/cyan]")
+    console.print()
+    console.print("[dim]Jump in your browser: [/dim][cyan]muapi open <target>[/cyan]")
+    console.print()
 
 
 @app.command("whoami")
 def whoami():
-    """Show the currently configured API key (masked)."""
-    key = get_api_key()
-    if not key:
-        error_exit("No API key configured. Run: muapi auth configure", exitcodes.AUTH_ERROR)
-    masked = key[:8] + "..." + key[-4:]
-    out.print(f"API key: [bold]{masked}[/bold]")
+    """Alias for [bold]muapi auth status[/bold]."""
+    status()
 
 
 @app.command("logout")

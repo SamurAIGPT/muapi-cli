@@ -5,7 +5,7 @@ import typer
 from rich import print as rprint
 
 from . import __version__
-from .commands import auth, account, audio, config_cmd, docs, edit, enhance, image, keys, models, predict, run, upload, video, workflow
+from .commands import auth, account, audio, config_cmd, docs, edit, enhance, image, init_cmd, keys, models, open_cmd, predict, run, upload, video, workflow
 from .commands import mcp_server
 from .dynamic_help import maybe_handle_run_help
 
@@ -43,6 +43,18 @@ app.add_typer(workflow.app,    name="workflow", help="Build, run, and visualize 
 app.add_typer(config_cmd.app,  name="config",  help="Get and set persistent CLI configuration.")
 app.add_typer(docs.app,        name="docs",    help="Access the muapi.ai API documentation.")
 app.add_typer(mcp_server.app,  name="mcp",     help="Run as an MCP server for AI agent integration.")
+
+app.command(
+    "init",
+    help="Create a muapi.json project config with defaultModel and alias stubs.",
+    context_settings={"help_option_names": ["-h", "--help"]},
+)(init_cmd.init)
+
+app.command(
+    "open",
+    help="Open a muapi.ai page in your browser (dashboard, models, docs, access-keys…).",
+    context_settings={"help_option_names": ["-h", "--help"]},
+)(open_cmd.open_page)
 
 
 @app.command("version")

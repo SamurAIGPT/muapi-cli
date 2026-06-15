@@ -96,6 +96,23 @@ def get_all_settings() -> dict:
     return {}
 
 
+def get_key_info() -> tuple[Optional[str], str]:
+    """Return (api_key, source_description) for display in status/whoami."""
+    if key := os.environ.get("MUAPI_API_KEY"):
+        return key, "env:MUAPI_API_KEY"
+    ok, val = _try_keyring()
+    if ok and val:
+        return val, "keychain"
+    if _CONFIG_FILE.exists():
+        try:
+            data = json.loads(_CONFIG_FILE.read_text())
+            if key := data.get("api_key"):
+                return key, f"file:{_CONFIG_FILE}"
+        except Exception:
+            pass
+    return None, "not set"
+
+
 def delete_api_key() -> None:
     ok, _ = _try_keyring()
     if ok:
