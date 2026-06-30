@@ -2000,7 +2000,7 @@
     "provider": "muapi"
   },
   {
-    "name": "sd-2-t2v",
+    "name": "seedance-2-t2v",
     "description": "SD 2.0 is the latest multimodal video generation model by ByteDance, offering advanced camera control, native audio-video sync, and high-resolution output.",
     "category": "text-to-video",
     "tier": "balanced",
@@ -2048,7 +2048,7 @@
     "provider": "PI_API"
   },
   {
-    "name": "sd-2-i2v",
+    "name": "seedance-2-i2v",
     "description": "SD 2.0 is the latest multimodal video generation model by ByteDance, offering advanced camera control, native audio-video sync, and high-resolution output.",
     "category": "image-to-video",
     "tier": "balanced",
@@ -2056,7 +2056,7 @@
     "provider": "PI_API"
   },
   {
-    "name": "sd-2-extend",
+    "name": "seedance-2-extend",
     "description": "SD 2.0 Extend Video continues an existing SD 2.0 generated video seamlessly. Provide the original request ID and an optional prompt to guide the extension \u2014 the model preserves visual style, motion, characters, and audio consistency across the new segment. Optional image, video, and audio references can be supplied to steer the extension: user-supplied references map to @image2\u2026@image9, @video1\u2026@video3, @audio1\u2026@audio3 in the prompt (the source video's last frame is always @image1).",
     "category": "text-to-video",
     "tier": "best",
@@ -2064,7 +2064,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-watermark-remover",
+    "name": "seedance-2-watermark-remover",
     "description": "\ud83c\udf89 FREE for a limited time \u2014 Remove SD 2.0 watermarks from videos using LaMa AI inpainting. Automatically detects the watermark region, builds a precise mask via Canny edge detection, and inpaints each frame for artifact-free results. No credits deducted \u2014 requires a positive balance to access.",
     "category": "video-edit",
     "tier": "balanced",
@@ -2168,7 +2168,7 @@
     "provider": "MUAPI_AI"
   },
   {
-    "name": "sd-2-new-t2v",
+    "name": "seedance-2-new-t2v",
     "description": "SD 2.0 New Text-to-Video by ByteDance. Generates cinematic video from a text prompt with native audio-visual sync, up to 2K resolution, and 4\u201315 second duration.",
     "category": "text-to-video",
     "tier": "balanced",
@@ -2176,7 +2176,7 @@
     "provider": "XSKILL"
   },
   {
-    "name": "sd-2-new-omni",
+    "name": "seedance-2-new-omni",
     "description": "SD 2.0 New Omni Reference \u2014 supply up to 9 images, 3 video clips, and 3 audio clips as reference. Reference them in your prompt with @image_file_1, @video_file_1, @audio_file_1 syntax for precise multimodal control.",
     "category": "image-to-video",
     "tier": "balanced",
@@ -2184,7 +2184,7 @@
     "provider": "XSKILL"
   },
   {
-    "name": "sd-2-new-first-last",
+    "name": "seedance-2-new-first-last",
     "description": "SD 2.0 New First & Last Frame \u2014 provide 1 image to anchor the first frame, or 2 images to control both start and end of the generated video for precise narrative transitions.",
     "category": "image-to-video",
     "tier": "balanced",
@@ -2248,7 +2248,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-video-edit",
+    "name": "seedance-2-video-edit",
     "description": "SD 2.0 Video Edit modifies existing videos based on text prompts and optional reference images.",
     "category": "video-edit",
     "tier": "best",
@@ -2256,7 +2256,7 @@
     "provider": "PI_API"
   },
   {
-    "name": "sd-2-omni-reference",
+    "name": "seedance-2-omni-reference",
     "description": "SD 2.0 Omni Reference \u2014 generate videos with visual consistency using reference images, videos, and audio. Maintain character identity, style, and scene continuity. Supports up to 9 images, 3 video clips, and 3 audio clips. Use @image1, @video1, @audio1 syntax in your prompt.",
     "category": "image-to-video",
     "tier": "best",
@@ -2328,7 +2328,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-character",
+    "name": "seedance-2-character",
     "description": "[Beta] Turn fictional character references into reusable video characters. Upload reference images and describe the outfit to get a character_id you can use in SD 2.0 Omni Reference.",
     "category": "image-edit",
     "tier": "balanced",
@@ -2336,7 +2336,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-video-watermark-remover-pro",
+    "name": "seedance-2-video-watermark-remover-pro",
     "description": "SD 2 Video Watermark Remover Pro uses the SD 2 AI model to remove watermarks, logos, and overlaid text from videos with high accuracy. Powered by ByteDance's SD 2 engine, it delivers superior quality compared to traditional inpainting approaches. Pricing: $0.013 per second, minimum charge for 5 seconds ($0.065).",
     "category": "video-edit",
     "tier": "best",
@@ -2504,7 +2504,7 @@
     "provider": "wavespeed"
   },
   {
-    "name": "sd-2-t2v-480p",
+    "name": "seedance-2-t2v-480p",
     "description": "SD 2.0 480p text-to-video generation. Faster and more cost-effective than the 720p variant, ideal for previews and drafts.",
     "category": "text-to-video",
     "tier": "balanced",
@@ -2512,7 +2512,7 @@
     "provider": "KIE"
   },
   {
-    "name": "sd-2-i2v-480p",
+    "name": "seedance-2-i2v-480p",
     "description": "SD 2.0 480p image-to-video generation. Faster and more cost-effective than the 720p variant, ideal for previews and drafts.",
     "category": "image-to-video",
     "tier": "balanced",
@@ -2520,7 +2520,7 @@
     "provider": "KIE"
   },
   {
-    "name": "sd-2-omni-reference-480p",
+    "name": "seedance-2-omni-reference-480p",
     "description": "SD 2.0 480p Omni Reference \u2014 generate videos with visual consistency using reference images, videos, and audio at 480p resolution. More cost-effective than the 720p variant. Supports up to 9 images, 3 video clips, and 3 audio clips. Use @image1, @video1, @audio1 syntax in your prompt.",
     "category": "image-to-video",
     "tier": "best",
@@ -2528,7 +2528,7 @@
     "provider": "KIE"
   },
   {
-    "name": "sd-2-text-to-video",
+    "name": "seedance-2-text-to-video",
     "description": "SD 2 Text-to-Video (Pro) by ByteDance. Generates high-quality cinematic video from a text prompt with native audio-visual sync, up to 2K resolution, and 4\u201315 second duration.",
     "category": "text-to-video",
     "tier": "best",
@@ -2536,7 +2536,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-text-to-video-fast",
+    "name": "seedance-2-text-to-video-fast",
     "description": "SD 2 Text-to-Video (Fast) by ByteDance. Generates video from text at faster speeds with 4\u201315 second duration and 2K resolution.",
     "category": "text-to-video",
     "tier": "fast",
@@ -2544,7 +2544,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-image-to-video",
+    "name": "seedance-2-image-to-video",
     "description": "SD 2 Image-to-Video (Pro) by ByteDance. Animates a start-frame image into a high-quality video with native audio, 4\u201315 second duration, and 2K resolution.",
     "category": "image-to-video",
     "tier": "best",
@@ -2552,7 +2552,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-image-to-video-fast",
+    "name": "seedance-2-image-to-video-fast",
     "description": "SD 2 Image-to-Video (Fast) by ByteDance. Quickly animates a start-frame image into video with 4\u201315 second duration at reduced cost.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2560,7 +2560,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-first-last-frame",
+    "name": "seedance-2-first-last-frame",
     "description": "SD 2 First & Last Frame (Pro) by ByteDance. Generate video that transitions between two reference images. Provide 1 image for start-frame-only, or 2 images for both start and end frames.",
     "category": "image-to-video",
     "tier": "best",
@@ -2568,7 +2568,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-first-last-frame-fast",
+    "name": "seedance-2-first-last-frame-fast",
     "description": "SD 2 First & Last Frame (Fast) by ByteDance. Quickly generate video that transitions between reference images at reduced cost. Provide 1 or 2 images.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2576,7 +2576,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-omni-reference-no-video",
+    "name": "seedance-2-omni-reference-no-video",
     "description": "SD 2 Omni Reference by ByteDance. Generate videos using up to 9 image references and up to 3 audio references. Reference images in your prompt with @image1, @image2, etc. and audio with @audio1, @audio2, etc.",
     "category": "image-to-video",
     "tier": "best",
@@ -2584,7 +2584,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-omni-reference-no-video-fast",
+    "name": "seedance-2-omni-reference-no-video-fast",
     "description": "SD 2 Omni Reference (Fast) by ByteDance. Quickly generate videos using up to 9 image references and up to 3 audio references at reduced cost. Reference images in your prompt with @image1, @image2, etc. and audio with @audio1, @audio2, etc.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2592,7 +2592,7 @@
     "provider": "PIAPI"
   },
   {
-    "name": "sd-2-vip-text-to-video",
+    "name": "seedance-2-vip-text-to-video",
     "description": "SD 2 Text-to-Video VIP (Pro) by ByteDance. Generates high-quality cinematic video from a text prompt with priority routing, native audio-visual sync, up to 2K resolution, and 4\u201315 second duration.",
     "category": "text-to-video",
     "tier": "best",
@@ -2600,7 +2600,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-text-to-video-fast",
+    "name": "seedance-2-vip-text-to-video-fast",
     "description": "SD 2 Text-to-Video VIP Fast by ByteDance. Faster generation with priority routing from a text prompt, 4\u201315 second duration and 2K resolution.",
     "category": "text-to-video",
     "tier": "fast",
@@ -2608,7 +2608,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-image-to-video",
+    "name": "seedance-2-vip-image-to-video",
     "description": "SD 2 Image-to-Video VIP (Pro) by ByteDance. Animates a start-frame image into a high-quality video with priority routing, native audio, 4\u201315 second duration, and 2K resolution.",
     "category": "image-to-video",
     "tier": "best",
@@ -2616,7 +2616,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-image-to-video-fast",
+    "name": "seedance-2-vip-image-to-video-fast",
     "description": "SD 2 Image-to-Video VIP Fast by ByteDance. Faster animation of a start-frame image with priority routing, 4\u201315 second duration, and 2K resolution.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2624,7 +2624,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-first-last-frame",
+    "name": "seedance-2-vip-first-last-frame",
     "description": "SD 2 First & Last Frame VIP (Pro) by ByteDance. Generate video that transitions between two reference images with priority routing. Provide 1 image for start-frame-only, or 2 images for both start and end frames.",
     "category": "image-to-video",
     "tier": "best",
@@ -2632,7 +2632,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-first-last-frame-fast",
+    "name": "seedance-2-vip-first-last-frame-fast",
     "description": "SD 2 First & Last Frame VIP Fast by ByteDance. Faster generation of video transitions between two reference images with priority routing.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2640,7 +2640,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-omni-reference",
+    "name": "seedance-2-vip-omni-reference",
     "description": "SD 2 Omni Reference VIP (Pro) by ByteDance. Generate videos using up to 9 image references, up to 3 video clips, and up to 3 audio references with priority routing. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3. Also supports @omni-character:<char_id> for trained characters.",
     "category": "image-to-video",
     "tier": "best",
@@ -2648,7 +2648,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-omni-reference-fast",
+    "name": "seedance-2-vip-omni-reference-fast",
     "description": "SD 2 Omni Reference VIP Fast by ByteDance. Faster video generation using up to 9 image references, up to 3 video clips, and up to 3 audio references with priority routing. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3.",
     "category": "image-to-video",
     "tier": "fast",
@@ -2712,7 +2712,7 @@
     "provider": "VADOO_AI"
   },
   {
-    "name": "sd-2-vip-text-to-video-1080p",
+    "name": "seedance-2-vip-text-to-video-1080p",
     "description": "SD 2 Text-to-Video VIP 1080p by ByteDance. Generates cinematic 1080p video from a text prompt with priority routing, native audio-visual sync, and 4\u201315 second duration.",
     "category": "text-to-video",
     "tier": "best",
@@ -2720,7 +2720,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-vip-image-to-video-1080p",
+    "name": "seedance-2-vip-image-to-video-1080p",
     "description": "SD 2 Image-to-Video VIP 1080p by ByteDance. Animates a still image into a cinematic 1080p video with priority routing, 4\u201315 second duration.",
     "category": "image-to-video",
     "tier": "best",
@@ -2728,7 +2728,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-vip-omni-reference-1080p",
+    "name": "seedance-2-vip-omni-reference-1080p",
     "description": "SD 2 Omni Reference VIP 1080p by ByteDance. Generate full HD videos using up to 9 image references, up to 3 video clips, and up to 3 audio references with priority routing. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3.",
     "category": "image-to-video",
     "tier": "best",
@@ -2736,7 +2736,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-vip-first-last-frame-1080p",
+    "name": "seedance-2-vip-first-last-frame-1080p",
     "description": "SD 2 First & Last Frame VIP 1080p by ByteDance. Generate 1080p video that transitions between two reference images with priority routing. Provide 1 image for start-frame-only, or 2 images for both start and end frames.",
     "category": "image-to-video",
     "tier": "best",
@@ -2920,7 +2920,7 @@
     "provider": "KIE_AI"
   },
   {
-    "name": "sd-2-vip-extend",
+    "name": "seedance-2-vip-extend",
     "description": "SD 2.0 VIP Extend Video continues an existing SD 2.0 generated video seamlessly at 720p. Provide the original request ID and an optional prompt to guide the extension \u2014 the model preserves visual style, motion, characters, and audio consistency across the new segment. Optional image, video, and audio references can be supplied to steer the extension: user-supplied references map to @image2\u2026@image9, @video1\u2026@video3, @audio1\u2026@audio3 in the prompt (the source video's last frame is always @image1).",
     "category": "text-to-video",
     "tier": "best",
@@ -2928,7 +2928,7 @@
     "provider": "KINOVI"
   },
   {
-    "name": "sd-2-vip-extend-1080p",
+    "name": "seedance-2-vip-extend-1080p",
     "description": "SD 2.0 VIP Extend Video 1080p continues an existing SD 2.0 generated video seamlessly at 1080p resolution. Provide the original request ID and an optional prompt to guide the extension \u2014 the model preserves visual style, motion, characters, and audio consistency across the new segment. Optional image, video, and audio references can be supplied to steer the extension: user-supplied references map to @image2\u2026@image9, @video1\u2026@video3, @audio1\u2026@audio3 in the prompt (the source video's last frame is always @image1).",
     "category": "text-to-video",
     "tier": "best",
