@@ -12,6 +12,7 @@ Official command-line interface for [muapi.ai](https://muapi.ai?utm_source=githu
 - [MuAPI CLI docs](https://muapi.ai/docs/cli) — Command reference and setup guidance.
 - [MuAPI API reference](https://muapi.ai/docs/api-reference) — Underlying endpoints and prediction lifecycle.
 - [MiniMax-H3-API](https://github.com/Anil-matcha/MiniMax-H3-API) — Python SDK for MiniMax H3 video-generation workflows on Muapi.
+- [awesome-minimax-h3-prompts](https://github.com/Anil-matcha/awesome-minimax-h3-prompts) — Prompt gallery with runnable MiniMax H3 examples for the CLI.
 - [Wan-3.0-API](https://github.com/Anil-matcha/Wan-3.0-API) — Python SDK and MCP server for Wan 3.0-compatible AI video generation.
 - [Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) — Browser-based GUI for the same models — no CLI required
 - [Awesome-GPT-Image-2-API-Prompts](https://github.com/Anil-matcha/Awesome-GPT-Image-2-API-Prompts) — Curated prompt library to run via this CLI
