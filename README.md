@@ -11,6 +11,8 @@ Official command-line interface for [muapi.ai](https://muapi.ai?utm_source=githu
 
 - [MuAPI CLI docs](https://muapi.ai/docs/cli) — Command reference and setup guidance.
 - [MuAPI API reference](https://muapi.ai/docs/api-reference) — Underlying endpoints and prediction lifecycle.
+- [midjourney-api](https://github.com/Anil-matcha/midjourney-api) — Python SDK for Midjourney V7, V8, and Niji image generation.
+- [suno-api](https://github.com/Anil-matcha/suno-api) — Python SDK for Suno music, audio, and voice workflows.
 - [minimax-music-3-api](https://github.com/SamurAIGPT/minimax-music-3-api) — Python SDK for MiniMax Music 3.0 text-to-music generation on Muapi.
 - [awesome-minimax-music-3-prompts](https://github.com/Anil-matcha/awesome-minimax-music-3-prompts) — Curated song prompts and lyrics-formatting guide for MiniMax Music 3.0.
 - [MiniMax-H3-API](https://github.com/Anil-matcha/MiniMax-H3-API) — Python SDK for MiniMax H3 video-generation workflows on Muapi.
