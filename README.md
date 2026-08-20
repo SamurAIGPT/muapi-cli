@@ -27,6 +27,11 @@ Official command-line interface for [muapi.ai](https://muapi.ai?utm_source=githu
 - [flux-3-video-api](https://github.com/SamurAIGPT/flux-3-video-api) — Python wrapper focused on FLUX 3 Text-to-Video and Image-to-Video
 - [seedance-2.5-mcp](https://github.com/Anil-matcha/seedance-2.5-mcp) — MCP server for generating Seedance 2.5 Preview videos through MuAPI.
 - [seedance-2-mcp](https://github.com/Anil-matcha/seedance-2-mcp) — MCP server for generating Seedance 2 videos through MuAPI.
+- [Text-to-Speech-API](https://github.com/Anil-matcha/Text-to-Speech-API) — speech model comparison and raw API examples that can be run through the CLI.
+- [Speech-to-Text-API](https://github.com/Anil-matcha/Speech-to-Text-API) — transcription and audio-analysis examples for the same Muapi endpoints.
+- [Image-Enhancement-API](https://github.com/Anil-matcha/Image-Enhancement-API) — image upscaling and background-removal API examples.
+- [Video-Utilities-API](https://github.com/Anil-matcha/Video-Utilities-API) — video enhancement and MMAudio utility examples.
+- [AI-3D-Model-API](https://github.com/Anil-matcha/AI-3D-Model-API) — Tripo3D and Meshy API comparisons and examples.
 
 ## Install
 
