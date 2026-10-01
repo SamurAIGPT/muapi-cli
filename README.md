@@ -38,6 +38,7 @@ Official command-line interface for [muapi.ai](https://muapi.ai?utm_source=githu
 - [Image-Enhancement-API](https://github.com/Anil-matcha/Image-Enhancement-API) — image upscaling and background-removal API examples.
 - [Video-Utilities-API](https://github.com/Anil-matcha/Video-Utilities-API) — video enhancement and MMAudio utility examples.
 - [AI-3D-Model-API](https://github.com/Anil-matcha/AI-3D-Model-API) — Tripo3D and Meshy API comparisons and examples.
+- [muapi-skills](https://github.com/SamurAIGPT/muapi-skills) — Agent skills (`npx skills add SamurAIGPT/muapi-skills`) that let Claude Code, Cursor and Codex discover, price and run Muapi models through this CLI.
 
 ## Install
 
