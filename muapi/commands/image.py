@@ -65,6 +65,7 @@ T2I_MODELS = {
     "nano-banana":         "nano-banana",
     "nano-banana-pro":     "nano-banana-pro",
     "nano-banana-2":       "nano-banana-2",
+    "nano-banana-2-1":     "nano-banana-2-1",
     # Kling
     "kling-o1":            "kling-o1-text-to-image",
     "kling-o3":            "kling-o3-image",
@@ -142,6 +143,7 @@ I2I_MODELS = {
     "nano-banana-edit":     "nano-banana-edit",
     "nano-banana-effects":  "nano-banana-effects",
     "nano-banana-2-edit":   "nano-banana-2-edit",
+    "nano-banana-2-1-edit": "nano-banana-2-1-edit",
     "nano-banana-pro-edit": "nano-banana-pro-edit",
     # Kling
     "kling-o1-edit":        "kling-o1-edit-image",
@@ -171,7 +173,7 @@ LIST_INPUT_MODELS = {
     "flux-2-klein-4b-edit", "flux-2-klein-9b-edit",
     "seedream-edit", "seedream-v4.5-edit", "seedream-5-edit", "seedance-character",
     "nano-banana-edit", "nano-banana-effects",
-    "nano-banana-2-edit", "nano-banana-pro-edit",
+    "nano-banana-2-edit", "nano-banana-2-1-edit", "nano-banana-pro-edit",
     "qwen", "qwen-plus", "qwen-plus-lora", "qwen-2511",
     "qwen-2-edit", "qwen-2-pro-edit",
     "kling-o3-edit",
