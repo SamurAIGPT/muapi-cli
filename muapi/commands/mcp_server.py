@@ -182,6 +182,7 @@ TOOLS = [
                                           "vidu","vidu-q1-ref","vidu-q2-pro","vidu-q2-turbo",
                                           "vidu-q2-ref","vidu-q2-start-end",
                                           "vidu-q3-pro","vidu-q3-turbo","vidu-q3-flf",
+                                          "vidu-q4","vidu-q4-ref",
                                           "midjourney",
                                           "minimax-std","minimax-pro","minimax-2.3-pro",
                                           "minimax-2.3-std","minimax-2.3-fast",

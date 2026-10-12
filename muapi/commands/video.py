@@ -163,6 +163,8 @@ I2V_MODELS = {
     "vidu-q3-pro":       "vidu-q3-pro-image-to-video",
     "vidu-q3-turbo":     "vidu-q3-turbo-image-to-video",
     "vidu-q3-flf":       "vidu-q3-pro-first-last-frames",
+    "vidu-q4":           "vidu-q4-image-to-video",
+    "vidu-q4-ref":       "vidu-q4-reference-to-video",
     # Midjourney
     "midjourney":        "midjourney-v7-image-to-video",
     # MiniMax / Hailuo
@@ -201,6 +203,7 @@ LIST_INPUT_I2V = {
     "seedance-2-vip",
     "vidu", "vidu-q1-ref", "vidu-q2-pro", "vidu-q2-turbo", "vidu-q2-ref",
     "vidu-q2-start-end", "vidu-q3-pro", "vidu-q3-turbo", "vidu-q3-flf",
+    "vidu-q4-ref",
     "pixverse-v4.5", "pixverse-v5", "pixverse-v5.5", "pixverse-v6", "pixverse-v6-trans",
     "veo4",
     "sora-2", "sora-2-pro", "sora-2-standard",
