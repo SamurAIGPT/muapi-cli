@@ -74,6 +74,7 @@ T2I_MODELS = {
     "hunyuan-3":           "hunyuan-image-3.0",
     # Ideogram
     "ideogram":            "ideogram-v3-t2i",
+    "ideogram-4":          "ideogram-v4",
     # Reve
     "reve":                "reve-text-to-image",
     # Z-Image

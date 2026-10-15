@@ -63,7 +63,7 @@ TOOLS = [
                                           "qwen","qwen-2","qwen-2-pro",
                                           "nano-banana","nano-banana-pro","nano-banana-2","nano-banana-2-1",
                                           "kling-o1","kling-o3",
-                                          "hunyuan","hunyuan-3","ideogram","reve",
+                                          "hunyuan","hunyuan-3","ideogram","ideogram-4","reve",
                                           "z-image","z-image-turbo",
                                           "leonardo-lucid","leonardo-phoenix",
                                           "grok","grok-quality","chroma",
