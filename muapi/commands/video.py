@@ -80,6 +80,8 @@ T2V_MODELS = {
     "ltx-2-fast":        "ltx-2-fast-text-to-video",
     "ltx-2-19b":         "ltx-2-19b-text-to-video",
     "ltx-2.3":           "ltx-2.3-text-to-video",
+    "ltx-2.5-fast":      "ltx-2.5-fast-text-to-video",
+    "ltx-2.5-pro":       "ltx-2.5-pro-text-to-video",
     # OpenAI Sora
     "sora":              "openai-sora",
     "sora-2":            "openai-sora-2-text-to-video",
@@ -178,6 +180,8 @@ I2V_MODELS = {
     "ltx-2-fast":        "ltx-2-fast-image-to-video",
     "ltx-2-19b":         "ltx-2-19b-image-to-video",
     "ltx-2.3":           "ltx-2.3-image-to-video",
+    "ltx-2.5-fast":      "ltx-2.5-fast-image-to-video",
+    "ltx-2.5-pro":       "ltx-2.5-pro-image-to-video",
     # OpenAI Sora
     "sora-2":            "openai-sora-2-image-to-video",
     "sora-2-pro":        "openai-sora-2-pro-image-to-video",
