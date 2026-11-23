@@ -28,6 +28,9 @@ T2I_MODELS = {
     "flux-2-flex":         "flux-2-flex",
     "flux-2-klein-4b":     "flux-2-klein-4b",
     "flux-2-klein-9b":     "flux-2-klein-9b",
+    "flux-3":              "flux-3-text-to-image",
+    "flux-3-dev":          "flux-3-dev",
+    "flux-3-klein":        "flux-3-klein-text-to-image",
     # HiDream
     "hidream-fast":        "hidream_i1_fast_image",
     "hidream-dev":         "hidream_i1_dev_image",
@@ -38,10 +41,15 @@ T2I_MODELS = {
     "wan2.6":              "wan2.6-text-to-image",
     "wan2.7":              "wan2.7-text-to-image",
     "wan2.7-pro":          "wan2.7-text-to-image-pro",
+    "wan3.0":              "wan3.0-text-to-image",
     # OpenAI / GPT-Image
     "gpt4o":               "gpt4o-text-to-image",
     "gpt-image":           "gpt-image-1.5",
     "gpt-image-2":         "gpt-image-2-text-to-image",
+    "gpt-image-2.6-flare": "gpt-image-2.6-flare",
+    "gpt-image-2.6-sunburst": "gpt-image-2.6-sunburst",
+    "gpt-image-2.5-flare": "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst": "gpt-image-2.5-sunburst",
     # Google
     "imagen4":             "google-imagen4",
     "imagen4-fast":        "google-imagen4-fast",
@@ -57,15 +65,23 @@ T2I_MODELS = {
     "seedream-v4":         "bytedance-seedream-v4",
     "seedream-v4.5":       "bytedance-seedream-v4.5",
     "seedream-5":          "seedream-5.0",
+    "seedream-5-flash":    "seedream-5.0-flash",
+    "seedream-5-pro":      "bytedance-seedream-5.0-pro",
+    "seedream-5.5":        "bytedance-seedream-v5.5",
+    "seedream-6":          "bytedance-seedream-6.0",
     # Qwen
     "qwen":                "qwen-image",
     "qwen-2":              "qwen-image-2.0",
     "qwen-2-pro":          "qwen-image-2.0-pro",
+    "qwen3":               "qwen3-image",
+    "qwen3-pro":           "qwen3-image-pro",
+    "qwen2.1":             "qwen2.1-image",
     # Nano-banana (Gemini-3 style)
     "nano-banana":         "nano-banana",
     "nano-banana-pro":     "nano-banana-pro",
     "nano-banana-2":       "nano-banana-2",
     "nano-banana-2-1":     "nano-banana-2-1",
+    "nano-banana-2-lite":  "nano-banana-2-lite",
     # Kling
     "kling-o1":            "kling-o1-text-to-image",
     "kling-o3":            "kling-o3-image",
@@ -80,17 +96,21 @@ T2I_MODELS = {
     # Z-Image
     "z-image":             "z-image-base",
     "z-image-turbo":       "z-image-turbo",
+    "z-image-p":           "z-image-p",
     # Leonardo
     "leonardo-lucid":      "leonardoai-lucid-origin",
     "leonardo-phoenix":    "leonardoai-phoenix-1.0",
     # Grok / xAI
     "grok":                "grok-imagine-text-to-image",
     "grok-quality":        "grok-imagine-text-to-image-quality",
+    "grok-imagine-2":      "grok-imagine-2-image",
     # Other
     "chroma":              "chroma-image",
     "sdxl":                "sdxl-image",
     "perfect-pony":        "perfect-pony-xl",
     "neta-lumina":         "neta-lumina",
+    "krea-v2-turbo":       "krea-v2-turbo",
+    "muse-image":          "muse-image-generation",
 }
 
 # Models whose API takes width+height rather than aspect_ratio.
@@ -99,8 +119,9 @@ WIDTH_HEIGHT_MODELS = {
     "flux-dev", "flux-schnell", "flux-krea",
     "flux-2-dev", "flux-2-pro", "flux-2-flex",
     "flux-2-klein-4b", "flux-2-klein-9b",
+    "flux-3", "flux-3-dev", "flux-3-klein",
     "hidream-fast", "hidream-dev", "hidream-full",
-    "wan2.1",
+    "wan2.1", "wan3.0",
     "sdxl", "perfect-pony", "neta-lumina",
 }
 
@@ -116,16 +137,25 @@ I2I_MODELS = {
     "flux-2-flex-edit":     "flux-2-flex-edit",
     "flux-2-klein-4b-edit": "flux-2-klein-4b-edit",
     "flux-2-klein-9b-edit": "flux-2-klein-9b-edit",
+    # Flux 3 edit
+    "flux-3-klein-edit":    "flux-3-klein-edit-image",
+    "flux-3-edit":          "flux-3-image-to-image",
     # OpenAI / GPT
     "gpt4o":                "gpt4o-image-to-image",
     "gpt4o-edit":           "gpt4o-edit",
     "gpt-image-edit":       "gpt-image-1.5-edit",
     "gpt-image-2-edit":     "gpt-image-2-image-to-image",
+    "gpt-image-2.6-flare":  "gpt-image-2.6-flare",
+    "gpt-image-2.6-sunburst": "gpt-image-2.6-sunburst",
+    "gpt-image-2.5-flare":  "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst": "gpt-image-2.5-sunburst",
     # Bytedance Seedream / Seededit
     "seededit":             "bytedance-seededit-image",
     "seedream-edit":        "bytedance-seedream-edit-v4",
     "seedream-v4.5-edit":   "bytedance-seedream-v4.5-edit",
     "seedream-5-edit":      "seedream-5.0-edit",
+    "seedream-5-flash-edit":"seedream-5.0-flash-edit",
+    "seedream-5-flash-layerize": "seedream-5.0-flash-layerize",
     "seedance-character":   "seedance-2-character",
     # Reve
     "reve":                 "reve-image-edit",
@@ -140,6 +170,7 @@ I2I_MODELS = {
     "qwen-2511":            "qwen-image-edit-2511",
     "qwen-2-edit":          "qwen-image-2.0-edit",
     "qwen-2-pro-edit":      "qwen-image-2.0-pro-edit",
+    "qwen3-edit":           "qwen3-image-edit",
     # Nano-banana
     "nano-banana-edit":     "nano-banana-edit",
     "nano-banana-effects":  "nano-banana-effects",
@@ -154,6 +185,7 @@ I2I_MODELS = {
     "wan2.6-edit":          "wan2.6-image-edit",
     "wan2.7-edit":          "wan2.7-image-edit",
     "wan2.7-edit-pro":      "wan2.7-image-edit-pro",
+    "wan3.0-edit":          "wan3.0-image-edit",
     # Ideogram
     "ideogram-character":   "ideogram-character",
     "ideogram-reframe":     "ideogram-v3-reframe",
@@ -165,6 +197,7 @@ I2I_MODELS = {
     "portrait-stylist":     "portrait-stylist",
     "minimax-subject":      "minimax-01-subject-reference",
     "vidu-q2-ref":          "vidu-q2-reference-to-image",
+    "face-expression":      "face-expression-change",
 }
 
 # I2I models that send images via "images_list" (array) instead of "image_url".
@@ -172,14 +205,17 @@ LIST_INPUT_MODELS = {
     "flux-kontext-dev", "flux-kontext-pro", "flux-kontext-max", "flux-kontext-effects",
     "flux-2-dev-edit", "flux-2-pro-edit", "flux-2-flex-edit",
     "flux-2-klein-4b-edit", "flux-2-klein-9b-edit",
-    "seedream-edit", "seedream-v4.5-edit", "seedream-5-edit", "seedance-character",
+    "flux-3-klein-edit", "flux-3-edit",
+    "seedream-edit", "seedream-v4.5-edit", "seedream-5-edit",
+    "seedream-5-flash-edit", "seedream-5-flash-layerize",
+    "seedance-character",
     "nano-banana-edit", "nano-banana-effects",
     "nano-banana-2-edit", "nano-banana-2-1-edit", "nano-banana-pro-edit",
     "qwen", "qwen-plus", "qwen-plus-lora", "qwen-2511",
-    "qwen-2-edit", "qwen-2-pro-edit",
+    "qwen-2-edit", "qwen-2-pro-edit", "qwen3-edit",
     "kling-o3-edit",
-    "wan2.5-edit", "wan2.6-edit", "wan2.7-edit", "wan2.7-edit-pro",
-    "vidu-q2-ref",
+    "wan2.5-edit", "wan2.6-edit", "wan2.7-edit", "wan2.7-edit-pro", "wan3.0-edit",
+    "vidu-q2-ref", "face-expression",
 }
 
 

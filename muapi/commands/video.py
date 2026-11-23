@@ -34,6 +34,8 @@ T2V_MODELS = {
     "kling-v3-omni-std": "kling-v3.0-omni-standard-text-to-video",
     "kling-v3-omni-4k":  "kling-v3.0-omni-4k-text-to-video",
     "kling-o1":          "kling-o1-text-to-video",
+    "kling-4.0":         "kling-4.0-text-to-video",
+    "kling-4.0-flash":   "kling-4.0-flash-text-to-video",
     # Wan
     "wan2.1":            "wan2.1-text-to-video",
     "wan2.2":            "wan2.2-text-to-video",
@@ -42,6 +44,9 @@ T2V_MODELS = {
     "wan2.5-fast":       "wan2.5-text-to-video-fast",
     "wan2.6":            "wan2.6-text-to-video",
     "wan2.7":            "wan2.7-text-to-video",
+    "wan3.0":            "wan3.0-text-to-video",
+    "wan3.0-spicy":      "wan3.0-spicy-text-to-video",
+    "wan3.0-prime":      "wan3.0-prime-text-to-video",
     # Seedance
     "seedance-pro":      "seedance-pro-t2v",
     "seedance-pro-fast": "seedance-pro-t2v-fast",
@@ -53,6 +58,12 @@ T2V_MODELS = {
     "seedance-2-fast":   "seedance-2-text-to-video-fast",
     "seedance-2-vip":    "seedance-2-vip-text-to-video",
     "seedance-2-vip-fast":"seedance-2-vip-text-to-video-fast",
+    "seedance-2.5-480p": "seedance-2.5-text-to-video-480p",
+    "seedance-2.5-1080p":"seedance-2.5-text-to-video-1080p",
+    "seedance-2.5-4k":   "seedance-2.5-text-to-video-4k",
+    "seedance-2.5-flash":"seedance-2.5-flash-text-to-video",
+    "seedance-2.5-flash-spicy": "seedance-2.5-flash-spicy-text-to-video",
+    "seedance-2.5-flash-intl":  "seedance-2.5-flash-text-to-video-international",
     # Hunyuan
     "hunyuan":           "hunyuan-text-to-video",
     "hunyuan-fast":      "hunyuan-fast-text-to-video",
@@ -75,6 +86,14 @@ T2V_MODELS = {
     "minimax-pro":       "minimax-hailuo-02-pro-t2v",
     "minimax-2.3-pro":   "minimax-hailuo-2.3-pro-t2v",
     "minimax-2.3-std":   "minimax-hailuo-2.3-standard-t2v",
+    "minimax-h3":        "minimax-h3-text-to-video",
+    "minimax-h3-spicy":  "minimax-h3-spicy-text-to-video",
+    "hailuo-03":         "hailuo-03-text-to-video",
+    # Flux 3
+    "flux-3":            "flux-3-text-to-video",
+    # Gemini Omni
+    "gemini-omni":       "gemini-omni-text-to-video",
+    "gemini-omni-flash": "gemini-omni-1.1-flash-text-to-video",
     # LTX
     "ltx-2":             "ltx-2-pro-text-to-video",
     "ltx-2-fast":        "ltx-2-fast-text-to-video",
@@ -120,6 +139,8 @@ I2V_MODELS = {
     "kling-o1":          "kling-o1-image-to-video",
     "kling-o1-std":      "kling-o1-standard-image-to-video",
     "kling-o1-ref":      "kling-o1-reference-to-video",
+    "kling-4.0-ref":     "kling-4.0-reference-to-video",
+    "kling-4.0-keyframe":"kling-4.0-keyframe-image-to-video",
     # Wan
     "wan2.1":            "wan2.1-image-to-video",
     "wan2.1-ref":        "wan2.1-reference-video",
@@ -130,6 +151,9 @@ I2V_MODELS = {
     "wan2.6":            "wan2.6-image-to-video",
     "wan2.7":            "wan2.7-image-to-video",
     "wan2.7-ref":        "wan2.7-reference-to-video",
+    "wan3.0-ref":        "wan3.0-reference-to-video",
+    "wan3.0-prime":      "wan3.0-prime-image-to-video",
+    "wan3.0-spicy":      "wan3.0-spicy-image-to-video",
     # Seedance
     "seedance-pro":      "seedance-pro-i2v",
     "seedance-pro-fast": "seedance-pro-i2v-fast",
@@ -144,6 +168,10 @@ I2V_MODELS = {
     "seedance-2-flf":    "seedance-2-first-last-frame",
     "seedance-2-omni":   "seedance-2.0-omni-reference",
     "seedance-2-vip":    "seedance-2-vip-image-to-video",
+    "seedance-2.5-flash":"seedance-2.5-flash-image-to-video",
+    "seedance-2.5-flash-ref": "seedance-2.5-flash-reference-to-video",
+    "seedance-2.5-flash-spicy": "seedance-2.5-flash-spicy-image-to-video",
+    "seedance-2.5-flash-intl":  "seedance-2.5-flash-image-to-video-international",
     # Hunyuan
     "hunyuan":           "hunyuan-image-to-video",
     # Runway
@@ -175,6 +203,13 @@ I2V_MODELS = {
     "minimax-2.3-pro":   "minimax-hailuo-2.3-pro-i2v",
     "minimax-2.3-std":   "minimax-hailuo-2.3-standard-i2v",
     "minimax-2.3-fast":  "minimax-hailuo-2.3-fast",
+    "minimax-h3":        "minimax-h3-image-to-video",
+    "minimax-h3-spicy":  "minimax-h3-spicy-image-to-video",
+    # Flux 3
+    "flux-3":            "flux-3-image-to-video",
+    # Gemini Omni
+    "gemini-omni-flash": "gemini-omni-1.1-flash-image-to-video",
+    "gemini-omni-flash-ref": "gemini-omni-1.1-flash-reference-to-video",
     # LTX
     "ltx-2":             "ltx-2-pro-image-to-video",
     "ltx-2-fast":        "ltx-2-fast-image-to-video",
@@ -192,6 +227,8 @@ I2V_MODELS = {
     "leonardo":          "leonardoai-motion-2.0",
     "happy-horse":       "happy-horse-1-image-to-video-1080p",
     "happy-horse-ref":   "happy-horse-1-reference-to-video-1080p",
+    "happy-horse-1":     "happy-horse-1-image-to-video-1080p",
+    "happy-horse-1-ref": "happy-horse-1-reference-to-video-1080p",
     "infinitetalk":      "infinitetalk-image-to-video",
     "video-effects":     "video-effects",
     "wan-effects":       "generate_wan_ai_effects",
@@ -201,10 +238,12 @@ I2V_MODELS = {
 LIST_INPUT_I2V = {
     "wan2.1", "wan2.1-ref", "wan2.2", "wan2.2-spicy",
     "wan2.5", "wan2.5-fast", "wan2.6", "wan2.7", "wan2.7-ref",
+    "wan3.0-ref", "wan3.0-prime", "wan3.0-spicy",
     "seedance-pro", "seedance-pro-fast", "seedance-lite", "seedance-lite-ref",
     "seedance-v1.5", "seedance-v1.5-fast", "seedance-v2", "seedance-v2-omni",
     "seedance-2", "seedance-2-fast", "seedance-2-flf", "seedance-2-omni",
     "seedance-2-vip",
+    "seedance-2.5-flash", "seedance-2.5-flash-ref", "seedance-2.5-flash-spicy", "seedance-2.5-flash-intl",
     "vidu", "vidu-q1-ref", "vidu-q2-pro", "vidu-q2-turbo", "vidu-q2-ref",
     "vidu-q2-start-end", "vidu-q3-pro", "vidu-q3-turbo", "vidu-q3-flf",
     "vidu-q4-ref",
@@ -212,7 +251,9 @@ LIST_INPUT_I2V = {
     "veo4",
     "sora-2", "sora-2-pro", "sora-2-standard",
     "kling-v3-4k", "kling-v3-omni", "kling-v3-omni-std", "kling-v3-omni-4k",
-    "happy-horse", "happy-horse-ref",
+    "kling-4.0-ref", "kling-4.0-keyframe",
+    "gemini-omni-flash-ref", "flux-3", "minimax-h3", "minimax-h3-spicy",
+    "happy-horse", "happy-horse-ref", "happy-horse-1", "happy-horse-1-ref",
 }
 
 

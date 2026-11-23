@@ -47,7 +47,7 @@ def _infer_tier(cost: float, name: str) -> str:
 
 
 def build_models(schema_path: Path) -> list[dict]:
-    data = json.loads(schema_path.read_text())
+    data = json.loads(schema_path.read_text(encoding="utf-8"))
     out = []
     seen = set()
     for m in data:
@@ -59,6 +59,12 @@ def build_models(schema_path: Path) -> list[dict]:
             continue
         name = m["name"]
         if name in seen:
+            continue
+        nm = name.lower()
+        # Exclude upscale, 3D, and LLMs per user requirements
+        if "upscale" in nm or "upscaler" in nm or "topaz" in nm:
+            continue
+        if "3d" in nm or "meshy" in nm or "tripo" in nm:
             continue
         seen.add(name)
         cost = float(m.get("cost") or 0)
