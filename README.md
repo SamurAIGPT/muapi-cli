@@ -115,7 +115,7 @@ muapi predict wait <request_id>
 | `muapi image edit <prompt> --image <url>` | Image-to-image editing |
 | `muapi image models` | List available models |
 
-**Models:** `flux-dev`, `flux-schnell`, `flux-kontext-dev/pro/max`, `hidream-fast/dev/full`, `wan2.1`, `reve`, `gpt4o`, `midjourney`, `seedream`, `qwen`
+**Models:** `flux-3`, `flux-3-dev`, `flux-3-klein`, `flux-dev`, `flux-2-dev`, `wan3.0`, `wan2.7`, `seedream-5-flash`, `seedream-5-pro`, `seedream-6`, `qwen3`, `qwen3-pro`, `gpt-image-2.6`, `nano-banana-2-lite`, `z-image-p`, `midjourney-v8`, `krea-v2-turbo`, `muse-image`
 
 ### `muapi video`
 | Command | Description |
@@ -124,7 +124,7 @@ muapi predict wait <request_id>
 | `muapi video from-image <prompt> --image <url>` | Image-to-video animation |
 | `muapi video models` | List available models |
 
-**Models:** `veo3`, `veo3-fast`, `kling-master`, `kling-std`, `kling-pro`, `wan2.1/2.2`, `seedance-pro/lite`, `hunyuan`, `runway`, `pixverse`, `vidu`, `minimax-std/pro`
+**Models:** `wan3.0`, `wan3.0-prime`, `seedance-2.5-flash`, `seedance-2.5-4k`, `kling-4.0`, `kling-v3-omni`, `flux-3`, `minimax-h3`, `gemini-omni`, `gemini-omni-flash`, `happy-horse-1`, `veo4`, `sora-2`, `vidu-q4`
 
 ### `muapi audio`
 | Command | Description |
@@ -134,6 +134,7 @@ muapi predict wait <request_id>
 | `muapi audio extend <song-id>` | Extend a Suno song |
 | `muapi audio from-text <prompt>` | Generate audio with MMAudio |
 | `muapi audio from-video <video-url>` | Add AI audio to a video |
+| `muapi audio tts <prompt>` | Text-to-speech with ElevenLabs & Gemini TTS |
 
 ### `muapi enhance`
 | Command | Description |

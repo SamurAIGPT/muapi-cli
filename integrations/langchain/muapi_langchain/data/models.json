@@ -3134,5 +3134,2149 @@
     "tier": "fast",
     "cost": 2.0,
     "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-text-to-video-fast-1080p",
+    "description": "SD 2 Text-to-Video VIP 1080p Fast by ByteDance. Faster 1080p generation with priority routing from a text prompt, 4\u201315 second duration.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 2.363,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-image-to-video-fast-1080p",
+    "description": "SD 2 Image-to-Video VIP 1080p Fast by ByteDance. Faster 1080p animation of a still image with priority routing, 4\u201315 second duration.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 2.363,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-omni-reference-fast-1080p",
+    "description": "SD 2 Omni Reference VIP 1080p Fast by ByteDance. Faster full HD omni-reference video generation with priority routing. Supports image, video, and audio references.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 2.363,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-character",
+    "description": "Generate a reusable character from a single reference image and a text description. Optionally attach a voice profile created with Gemini Omni Audio to give the character a consistent voice in future video generations.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.0,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "motion-graphics",
+    "description": "Generate animated motion graphics videos from a text prompt using AI-generated React/Remotion code rendered on Modal.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.63,
+    "provider": "MODAL"
+  },
+  {
+    "name": "motion-graphics-edit",
+    "description": "Edit and modify a previously generated motion graphics animation using a text instruction.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.63,
+    "provider": "REMOTION_MODAL"
+  },
+  {
+    "name": "grok-imagine-video-1-5-preview",
+    "description": "Generate videos from images using the Grok Imagine Video 1.5 Preview model with support for multiple aspect ratios, resolutions, and durations up to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.64,
+    "provider": "KIE"
+  },
+  {
+    "name": "omnihuman-1-5",
+    "description": "Generate realistic talking head video from portrait image and audio using OmniHuman 1.5.",
+    "category": "lipsync",
+    "tier": "balanced",
+    "cost": 0.25,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "kling-v3-turbo-standard-image-to-video",
+    "description": "Generate fast, high-quality videos from a single image using Kling v3 Turbo Standard (720p). Supports durations from 3 to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE"
+  },
+  {
+    "name": "kling-v3-turbo-standard-text-to-video",
+    "description": "Generate fast, high-quality videos from text prompts using Kling v3 Turbo Standard (720p). Supports durations from 3 to 15 seconds and multiple aspect ratios.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE"
+  },
+  {
+    "name": "kling-v3-turbo-pro-image-to-video",
+    "description": "Generate fast, high-quality videos from a single image using Kling v3 Turbo Pro (1080p). Supports durations from 3 to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.7,
+    "provider": "KIE"
+  },
+  {
+    "name": "kling-v3-turbo-pro-text-to-video",
+    "description": "Generate fast, high-quality videos from text prompts using Kling v3 Turbo Pro (1080p). Supports durations from 3 to 15 seconds and multiple aspect ratios.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.7,
+    "provider": "KIE"
+  },
+  {
+    "name": "seedance-2.1-image-to-video",
+    "description": "Seedance 2.1 Image-to-Video converts a single still image into a high-fidelity cinematic video. This next-generation model delivers enhanced temporal consistency, improved motion realism, and smarter prompt adherence \u2014 producing smooth, coherent clips up to 1080p.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.4,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "seedance-2.1-text-to-video",
+    "description": "Seedance 2.1 Text-to-Video generates high-quality cinematic videos directly from text prompts. The model excels at complex scene composition, smooth temporal flow, and accurate prompt interpretation \u2014 producing vivid motion sequences up to 1080p with enhanced realism over the previous generation.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.4,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "seedance-2.5-image-to-video",
+    "description": "Seedance 2.5 Image-to-Video animates a single image into video, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-text-to-video",
+    "description": "Seedance 2.5 Text-to-Video generates cinematic video directly from a detailed text prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-mini-image-to-video",
+    "description": "Seedance 2.0 Mini Image-to-Video is the fastest and most cost-efficient tier in the Seedance 2.0 family, converting still images into smooth cinematic video clips at up to 720p. Roughly 2x faster than Seedance 2.0 Fast, it is purpose-built for high-volume production, rapid iteration, and draft workflows.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.2,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-mini-text-to-video",
+    "description": "Seedance 2.0 Mini Text-to-Video is the fastest and most affordable text-to-video model in the Seedance lineup, generating smooth 720p video clips from text prompts. Designed for rapid iteration and high-volume workflows, it delivers approximately 2x faster generation than Seedance 2.0 Fast at a fraction of the cost.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.2,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "happy-horse-1.1-text-to-video-1080p",
+    "description": "Happy Horse 1.1 Text to Video (1080p) \u2014 generate expressive 1080p video clips from text prompts with vivid character motion and dynamic scene storytelling.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-image-to-video-1080p",
+    "description": "Happy Horse 1.1 Image to Video (1080p) \u2014 bring still images to life with fluid, expressive 1080p animation.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-text-to-video-720p",
+    "description": "Happy Horse 1.1 Text to Video (720p) \u2014 generate expressive 720p video clips from text prompts with vivid character motion.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-image-to-video-720p",
+    "description": "Happy Horse 1.1 Image to Video (720p) \u2014 bring still images to life with fluid, expressive 720p animation.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-reference-to-video-1080p",
+    "description": "Happy Horse 1.1 Reference to Video (1080p) \u2014 generate 1080p video conditioned on 1-9 reference images plus a text prompt.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-reference-to-video-720p",
+    "description": "Happy Horse 1.1 Reference to Video (720p) \u2014 generate 720p video conditioned on 1-9 reference images plus a text prompt.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-video-edit-1080p",
+    "description": "Happy Horse 1.1 Video Edit (1080p) \u2014 modify an input video using natural-language instructions with optional reference images.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-video-edit-720p",
+    "description": "Happy Horse 1.1 Video Edit (720p) \u2014 modify an input video using natural-language instructions with optional reference images.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-mini-omni-reference",
+    "description": "Seedance 2 Mini Omni Reference generates video from a text prompt with optional image, video, and audio references. Cost-efficient mini-tier model for reference-driven workflows.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.15,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-text-to-video-4k",
+    "description": "SD 2 Text-to-Video VIP 4K by ByteDance. Generates ultra-high-resolution 4K video from a text prompt with priority routing, native audio-visual sync, and 4\u201315 second duration.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 6.75,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-image-to-video-4k",
+    "description": "SD 2 Image-to-Video VIP 4K by ByteDance. Animates a still image into a 4K ultra-HD video with priority routing and 4\u201315 second duration.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 6.75,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-first-last-frame-4k",
+    "description": "SD 2 First & Last Frame VIP 4K by ByteDance. Generate 4K video that transitions between two reference images with priority routing. Provide 1 image for start-frame-only, or 2 images for both start and end frames.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 6.75,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-vip-omni-reference-4k",
+    "description": "SD 2 Omni Reference VIP 4K by ByteDance. Generate 4K ultra-HD videos using up to 9 image references, up to 3 video clips, and up to 3 audio references with priority routing. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 6.75,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "elevenlabs-text-to-dialogue-v3",
+    "description": "Generate expressive, multilingual text-to-dialogue content using the ElevenLabs Text To Dialogue V3 model.",
+    "category": "audio",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE"
+  },
+  {
+    "name": "nano-banana-2-lite",
+    "description": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's fastest and most cost-efficient text-to-image model, delivering 4-second generation with exceptional prompt adherence, character consistency, and legible in-image text rendering.",
+    "category": "text-to-image",
+    "tier": "fast",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "nano-banana-2-lite-edit",
+    "description": "Nano Banana 2 Lite Edit (Gemini 3.1 Flash Lite Image) is Google's fastest and most cost-efficient image editing model, blending up to 14 reference images with exceptional prompt adherence and character consistency.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "suno-convert-to-wav",
+    "description": "Converts an existing Suno-generated music track to high-quality, uncompressed WAV format for professional editing and processing. Provide the task_id from a prior music generation request and the audio_id of the specific track to convert.",
+    "category": "audio",
+    "tier": "budget",
+    "cost": 0.01,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "bytedance-seedream-5.0-pro",
+    "description": "Seedream 5.0 Pro is ByteDance's flagship next-generation text-to-image model, extending Seedream 5.0 Lite with higher-fidelity rendering, deeper visual reasoning, and finer typography control. It targets up to 2K output with stronger scene composition, more consistent multi-character generation, and richer prompt adherence for professional creative workflows.",
+    "category": "text-to-image",
+    "tier": "best",
+    "cost": 0.045,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "bytedance-seedream-5.0-pro-edit",
+    "description": "Seedream 5.0 Pro Edit is ByteDance's flagship image editing model, extending Seedream 5.0 Lite Edit with higher-fidelity rendering, deeper visual reasoning, and finer typography control. It accepts one or more reference images and a natural-language instruction, targeting up to 2K output with stronger scene composition and richer prompt adherence for professional creative workflows.",
+    "category": "image-edit",
+    "tier": "best",
+    "cost": 0.045,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "volcengine-video-to-video-lip-sync",
+    "description": "Drive a video's lip movements to match a target audio track, producing a lip-synced video output.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2.5-spicy-image-to-video",
+    "description": "Seedance 2.5 Spicy Image-to-Video is the relaxed-moderation variant of the Seedance 2.5 flagship model. It animates a single image into photorealistic 4K video with reduced content-safety filtering and more dramatic, higher-contrast motion than the standard tier \u2014 while keeping native audio generation and precise camera trajectory control.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.6,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "seedance-2.5-spicy-text-to-video",
+    "description": "Seedance 2.5 Spicy Text-to-Video is the relaxed-moderation variant of the Seedance 2.5 flagship model, generating photorealistic 4K cinematic video directly from a text prompt with reduced content-safety filtering and more dramatic, higher-contrast motion than the standard tier \u2014 while retaining native audio synthesis and extended clip durations.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.6,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "seedance-2-spicy-text-to-video",
+    "description": "Seedance 2 Spicy Text-to-Video by ByteDance. Same VIP-tier priority routing, native audio-visual sync, and up to 2K resolution as Seedance 2 VIP, with reduced content-safety filtering for more creative freedom.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 1.65,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-spicy-text-to-video-fast",
+    "description": "Seedance 2 Spicy Text-to-Video Fast by ByteDance. The quickest Spicy-tier text-to-video generation, with reduced content-safety filtering and the same fast queue as Seedance 2 VIP Fast.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 1.155,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-spicy-image-to-video",
+    "description": "Seedance 2 Spicy Image-to-Video by ByteDance. Animates a start frame into cinematic video with VIP-tier priority routing and up to 2K resolution, with reduced content-safety filtering for more creative freedom.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.65,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-spicy-image-to-video-fast",
+    "description": "Seedance 2 Spicy Image-to-Video Fast by ByteDance. The quickest Spicy-tier image animation, with reduced content-safety filtering and the same fast queue as Seedance 2 VIP Fast.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.155,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-mini-spicy-text-to-video",
+    "description": "Seedance 2 Mini Spicy Text-to-Video is the fastest, lowest-cost Spicy-tier text-to-video generation, with reduced content-safety filtering on top of Seedance 2 Mini's speed and pricing.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.22,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2-mini-spicy-image-to-video",
+    "description": "Seedance 2 Mini Spicy Image-to-Video is the fastest, lowest-cost Spicy-tier image animation, with reduced content-safety filtering on top of Seedance 2 Mini's speed and pricing.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.22,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-3-1-flash-tts",
+    "description": "Gemini 3.1 Flash TTS turns written dialogue into expressive, natural multi-speaker speech with fine-grained control over voice, accent, emotional style, and pace. Ideal for fast, affordable voiceovers, character dialogue, and narration.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.035,
+    "provider": "KIE"
+  },
+  {
+    "name": "gemini-2-5-pro-tts",
+    "description": "Gemini 2.5 Pro TTS is Google's premium text-to-speech model for studio-quality, high-fidelity multi-speaker audio with expressive control over voice, accent, emotional style, and pace.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.035,
+    "provider": "KIE"
+  },
+  {
+    "name": "video-background-remover",
+    "description": "Video Background Remover automatically removes the background from any video, producing a clean cutout of the subject with a transparent or solid-color backdrop. It handles hair, edges, and fine detail with frame-accurate matting, supports videos up to 60 seconds, and can output transparent WebM/MOV, standard MP4, or animated GIF while optionally preserving the original audio.",
+    "category": "video-edit",
+    "tier": "budget",
+    "cost": 0.01,
+    "provider": ""
+  },
+  {
+    "name": "flux-3-text-to-image",
+    "description": "FLUX 3 Text-to-Image is Black Forest Labs' next-generation multimodal frontier model, jointly trained across image, video, and audio for outputs that are truer to life in every style. It generates highly photorealistic and stylistically flexible images from text prompts, with sharper detail, more coherent composition, and stronger prompt adherence than the FLUX.2 generation.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.05,
+    "provider": "BLACKFOREST_LABS"
+  },
+  {
+    "name": "flux-3-image-to-image",
+    "description": "FLUX 3 Image-to-Image edits and restyles existing images using a text instruction plus up to several reference images. Built on Black Forest Labs' unified multimodal architecture, it preserves subject identity and scene structure while applying precise, prompt-driven edits \u2014 ideal for product retouching, style transfer, and character-consistent edits.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.06,
+    "provider": "BLACKFOREST_LABS"
+  },
+  {
+    "name": "flux-3-dev",
+    "description": "FLUX 3 Dev is the faster, lower-cost variant of Black Forest Labs' FLUX 3 frontier model, planned for open-weight release. It trades a small amount of peak fidelity for significantly reduced latency and price, making it well suited for rapid iteration, prototyping, and high-volume text-to-image generation.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.025,
+    "provider": "BLACKFOREST_LABS"
+  },
+  {
+    "name": "flux-3-text-to-video",
+    "description": "FLUX 3 Text-to-Video generates cinematic video clips with optional native synchronized audio from a single unified model \u2014 the same architecture Black Forest Labs uses for FLUX 3's action-prediction research. Expect coherent motion, strong physical plausibility, and scene-appropriate ambient sound baked directly into generation.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.25,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-image-to-video",
+    "description": "FLUX 3 Image-to-Video animates a still image into a cinematic clip with optional native synchronized audio, using Black Forest Labs' unified image/video/audio architecture. Motion stays physically grounded and consistent with the source frame, making it suited for product animation, portrait bring-to-life effects, and scene extension.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.25,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "wan3.0-text-to-video",
+    "description": "Wan 3.0 Text to Video generates a video with synchronized audio directly from a text prompt, with selectable resolution, aspect ratio, and duration.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.5,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-image-to-video",
+    "description": "Wan 3.0 Image to Video animates a source image with synchronized audio from a motion prompt, with an optional end-frame image, selectable resolution, aspect ratio, and duration.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.5,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-text-to-image",
+    "description": "Wan 3.0 Text to Image is an upcoming AI image model. Confirmed API controls, output specifications, and pricing will be published at launch.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.05,
+    "provider": "ALIBABA"
+  },
+  {
+    "name": "wan3.0-image-edit",
+    "description": "Wan 3.0 Image Edit is an upcoming AI image-editing model. Confirmed API controls, output specifications, and pricing will be published at launch.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.05,
+    "provider": "ALIBABA"
+  },
+  {
+    "name": "minimax-h3-text-to-video",
+    "description": "MiniMax H3 Text to Video creates video from a written prompt through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.7,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-image-to-video",
+    "description": "MiniMax H3 Image to Video animates a source image with a motion prompt through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.7,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-reference-to-video",
+    "description": "MiniMax H3 Reference to Video creates a 768p or 2K video from a prompt plus image, video, and optional audio references through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.7,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "seedance-2.5-text-to-video-480p",
+    "description": "Seedance 2.5 Text-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution \u2014 faster and more cost-effective than the 720p variant, ideal for previews and drafts. Supports clips up to 30 seconds.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-image-to-video-480p",
+    "description": "Seedance 2.5 Image-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, animating a single image into video. Faster and more cost-effective than the 720p variant. Supports clips up to 30 seconds.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-first-last-frame",
+    "description": "Seedance 2.5 First & Last Frame generates a smooth video transition between a start and end image, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-first-last-frame-480p",
+    "description": "Seedance 2.5 First & Last Frame 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, generating a smooth video transition between a start and end image. Faster and more cost-effective than the 720p variant.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-omni-reference",
+    "description": "Seedance 2.5 Omni Reference blends multiple reference images, video clips, and audio into a single guided generation, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-omni-reference-480p",
+    "description": "Seedance 2.5 Omni Reference 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, blending multiple reference images, video clips, and audio into a single guided generation. Faster and more cost-effective than the 720p variant.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "minimax-h3-open-text-to-video",
+    "description": "MiniMax H3 Open Text to Video generates coherent videos with native audio from text prompts, supporting 480p/768p resolution and 5-15s duration.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.26,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "minimax-h3-open-image-to-video",
+    "description": "MiniMax H3 Open Image to Video animates a first-frame image (with optional last-frame guidance) into coherent video with native audio, supporting 480p/768p resolution and 5-15s duration.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.26,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "minimax-h3-open-reference-to-video",
+    "description": "MiniMax H3 Open Reference to Video generates coherent videos from prompts and multimodal references, guided by up to 9 reference images, 3 reference videos, and 3 reference audios with native stereo audio.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.33,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "qwen3-text-to-image",
+    "description": "Qwen 3.0 Text to Image generates high-fidelity photorealistic images and editorial artwork from prompts with intelligent prompt rewriting.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "qwen3-image-to-image",
+    "description": "Qwen 3.0 Image to Image transforms and edits existing reference images according to text prompts with precise style and content preservation.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "qwen3-pro-text-to-image",
+    "description": "Qwen 3.0 Pro Text to Image generates high-fidelity professional photorealistic images and editorial artwork from prompts with enhanced detail.",
+    "category": "text-to-image",
+    "tier": "best",
+    "cost": 0.04,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "qwen3-pro-image-to-image",
+    "description": "Qwen 3.0 Pro Image to Image transforms and edits existing reference images according to text prompts with professional-grade precision.",
+    "category": "image-edit",
+    "tier": "best",
+    "cost": 0.04,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "elevenlabs-tts-turbo-2-5",
+    "description": "Convert text to natural-sounding speech using the ElevenLabs TTS Turbo 2.5 model, with adjustable stability, similarity, and speed.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.05,
+    "provider": "POYO"
+  },
+  {
+    "name": "face-expression-change",
+    "description": "Change face expressions and camera angles using Qwen Image Edit with predefined angle and expression LoRA weights.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.04,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "wan3.0-spicy-text-to-video",
+    "description": "Wan 3.0 Spicy Text to Video generates a bold, high-contrast, high-motion video with synchronized audio directly from a text prompt, with selectable resolution, aspect ratio, and duration.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.55,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-spicy-image-to-video",
+    "description": "Wan 3.0 Spicy Image to Video animates a source image into a bold, high-contrast, high-motion video with synchronized audio from a motion prompt, with an optional end-frame image, selectable resolution, aspect ratio, and duration.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.55,
+    "provider": "kie"
+  },
+  {
+    "name": "seedance-2.5-text-to-video-1080p",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-text-to-video-4k",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-image-to-video-1080p",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-image-to-video-4k",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-first-last-frame-1080p",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-first-last-frame-4k",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-omni-reference-1080p",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-omni-reference-4k",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-edit",
+    "description": "Seedance 2.5 Video Edit edits an input video from a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-edit-480p",
+    "description": "Seedance 2.5 Video Edit 480p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-edit-1080p",
+    "description": "Seedance 2.5 Video Edit 1080p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-edit-4k",
+    "description": "Seedance 2.5 Video Edit 4K edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-extend",
+    "description": "Seedance 2.5 Video Extend extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-extend-480p",
+    "description": "Seedance 2.5 Video Extend 480p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.85,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-extend-1080p",
+    "description": "Seedance 2.5 Video Extend 1080p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.25,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-video-extend-4k",
+    "description": "Seedance 2.5 Video Extend 4K extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 8.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "grok-imagine-image-2",
+    "description": "Grok Imagine Image 2.0 is xAI's next-generation image model, built for precise instruction-following, sharp typography, and detailed layout control. It follows instructions closely down to fine detail and plans layout so dense, multi-part visuals hold together, turning a text prompt into a polished, commercial-ready image in one request.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.05,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2.5-intl-text-to-video",
+    "description": "Seedance 2.5 Text-to-Video generates cinematic video directly from a detailed text prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-text-to-video-480p",
+    "description": "Seedance 2.5 Text-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution \u2014 faster and more cost-effective than the 720p variant, ideal for previews and drafts. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-text-to-video-480p",
+    "description": "Seedance 2.5 Text-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution \u2014 faster and more cost-effective than the 720p variant, ideal for previews and drafts. Supports clips up to 30 seconds. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-text-to-video-1080p",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-text-to-video-1080p",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-text-to-video-4k",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-text-to-video-4k",
+    "description": "Seedance 2.5 Text-to-Video is the early-access preview build of the Seedance 2.5 family, generating cinematic video directly from a detailed text prompt. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-image-to-video",
+    "description": "Seedance 2.5 Image-to-Video animates a single image into video, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-image-to-video-480p",
+    "description": "Seedance 2.5 Image-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, animating a single image into video. Faster and more cost-effective than the 720p variant. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-image-to-video-480p",
+    "description": "Seedance 2.5 Image-to-Video 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, animating a single image into video. Faster and more cost-effective than the 720p variant. Supports clips up to 30 seconds. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-image-to-video-1080p",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-image-to-video-1080p",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-image-to-video-4k",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-image-to-video-4k",
+    "description": "Seedance 2.5 Image-to-Video is the early-access preview build of the Seedance 2.5 family, animating a single image into video. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-first-last-frame",
+    "description": "Seedance 2.5 First & Last Frame generates a smooth video transition between a start and end image, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-first-last-frame",
+    "description": "Seedance 2.5 First & Last Frame generates a smooth video transition between a start and end image, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-first-last-frame-480p",
+    "description": "Seedance 2.5 First & Last Frame 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, generating a smooth video transition between a start and end image. Faster and more cost-effective than the 720p variant. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-first-last-frame-480p",
+    "description": "Seedance 2.5 First & Last Frame 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, generating a smooth video transition between a start and end image. Faster and more cost-effective than the 720p variant. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-first-last-frame-1080p",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-first-last-frame-1080p",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-first-last-frame-4k",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-first-last-frame-4k",
+    "description": "Seedance 2.5 First & Last Frame is the early-access preview build of the Seedance 2.5 family, generating a smooth video transition between a start and end image. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-omni-reference",
+    "description": "Seedance 2.5 Omni Reference blends multiple reference images, video clips, and audio into a single guided generation, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-omni-reference",
+    "description": "Seedance 2.5 Omni Reference blends multiple reference images, video clips, and audio into a single guided generation, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. Supports clips up to 30 seconds. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-omni-reference-480p",
+    "description": "Seedance 2.5 Omni Reference 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, blending multiple reference images, video clips, and audio into a single guided generation. Faster and more cost-effective than the 720p variant. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-omni-reference-480p",
+    "description": "Seedance 2.5 Omni Reference 480p is the early-access preview build of the Seedance 2.5 family at 480p resolution, blending multiple reference images, video clips, and audio into a single guided generation. Faster and more cost-effective than the 720p variant. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-omni-reference-1080p",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-omni-reference-1080p",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 1080p variant is natively rendered (not upscaled from 720p) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-omni-reference-4k",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-omni-reference-4k",
+    "description": "Seedance 2.5 Omni Reference is the early-access preview build of the Seedance 2.5 family, blending multiple reference images, video clips, and audio into a single guided generation. This 4K variant is natively rendered at 4K (not upscaled from a lower resolution) and supports clips up to 30 seconds. It is priced above the standard 720p tier. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-edit",
+    "description": "Seedance 2.5 Video Edit edits an input video from a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-edit",
+    "description": "Seedance 2.5 Video Edit edits an input video from a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-edit-480p",
+    "description": "Seedance 2.5 Video Edit 480p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-edit-480p",
+    "description": "Seedance 2.5 Video Edit 480p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-edit-1080p",
+    "description": "Seedance 2.5 Video Edit 1080p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-edit-1080p",
+    "description": "Seedance 2.5 Video Edit 1080p edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-edit-4k",
+    "description": "Seedance 2.5 Video Edit 4K edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-edit-4k",
+    "description": "Seedance 2.5 Video Edit 4K edits an input video from a natural-language prompt. The reference video drives subject identity, composition, and motion while the model rewrites lighting, style, weather, environment, or specific elements as instructed. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-extend",
+    "description": "Seedance 2.5 Video Extend extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-extend",
+    "description": "Seedance 2.5 Video Extend extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt, with selectable output resolution (480p/720p/1080p/4K) \u2014 price scales with the resolution chosen. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.87,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-extend-480p",
+    "description": "Seedance 2.5 Video Extend 480p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-extend-480p",
+    "description": "Seedance 2.5 Video Extend 480p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.935,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-extend-1080p",
+    "description": "Seedance 2.5 Video Extend 1080p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-extend-1080p",
+    "description": "Seedance 2.5 Video Extend 1080p extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 4.675,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-video-extend-4k",
+    "description": "Seedance 2.5 Video Extend 4K extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This international-region endpoint is served via a Dreamina-hosted deployment of the same Seedance 2.5 model, for traffic outside mainland China.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-spicy-video-extend-4k",
+    "description": "Seedance 2.5 Video Extend 4K extends an input video with a new cinematic continuation generated from its last frame and a natural-language prompt. This Spicy endpoint is the relaxed-moderation sibling of the standard tier, with lighter content-safety filtering and bolder, higher-contrast output.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 9.35,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "wan2.7-image-to-video-spicy",
+    "description": "Alibaba WAN 2.7 Spicy Image-to-Video animates a still image into a bold, high-motion clip with optional audio-guided generation, single- or multi-shot framing, and prompt-expansion.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.0,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "wan2.6-image-to-video-spicy",
+    "description": "Alibaba WAN 2.6 Spicy Image-to-Video animates a still image into a bold, high-motion clip with optional audio-guided generation, single- or multi-shot framing, and prompt-expansion.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.0,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "bytedance-seedream-5.0-pro-layer",
+    "description": "Decompose complex images into clean, editable multi-layer assets with ByteDance Seedream 5 Pro Layer Decomposition.",
+    "category": "image-edit",
+    "tier": "best",
+    "cost": 0.045,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "minimax-music-3.0",
+    "description": "Generate a full song with vocals or an instrumental-only track from a text prompt and structured lyrics with MiniMax Music 3.0.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.2,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "grok-imagine-image-2-edit",
+    "description": "Grok Imagine Image 2.0 Edit applies a targeted, natural-language edit to a prior Grok Imagine Image 2.0 generation, changing only the described region while preserving the rest of the composition, style, and subject.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.05,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "krea-v2-turbo",
+    "description": "Krea 2 Turbo generates aesthetic-first images natively at 1K to 2K resolution in seconds, supporting both text-to-image and image-to-image workflows.",
+    "category": "text-to-image",
+    "tier": "fast",
+    "cost": 0.015,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "ltx-2.5-text-to-video",
+    "description": "LTX 2.5 Text-to-Video generates high-fidelity synchronized audio-video content directly from text prompts, with flexible duration up to 20 seconds and 720P / 1080P / 2K / 4K output for cinematic videos, ads, social content, and production workflows.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.65,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "ltx-2.5-image-to-video",
+    "description": "LTX 2.5 Image-to-Video animates a first-frame image into high-fidelity synchronized audio-video content, with optional last-frame guidance and 720P / 1080P / 2K / 4K output for cinematic videos, social content, ads, and production workflows.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.65,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-video-extend",
+    "description": "FLUX 3 Video Extend continues an existing video clip with prompt-guided motion, scene development, and camera movement \u2014 with optional native synchronized audio \u2014 using Black Forest Labs' unified image/video/audio architecture. Source clips must be under 50 MB and under 15 seconds.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.25,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-omni",
+    "description": "FLUX 3 Omni is Black Forest Labs' Omni Reference mode \u2014 it takes multiple reference images and video clips at once and generates new images or video that keep the same subject, style, and scene consistent across every output. Listed by Black Forest Labs as coming soon.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.4,
+    "provider": "BLACKFOREST_LABS"
+  },
+  {
+    "name": "wan3.0-reference-to-video",
+    "description": "Wan 3.0 Reference to Video generates a video guided by a prompt plus up to 10 reference images, 5 reference videos, and 5 reference audios for visual and audio coherence.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.5,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-prime-text-to-video",
+    "description": "Wan 3.0 Prime Text to Video generates a higher-fidelity video with synchronized audio directly from a text prompt, with selectable resolution, aspect ratio, and duration.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-prime-image-to-video",
+    "description": "Wan 3.0 Prime Image to Video animates a source image with synchronized audio from a motion prompt at higher fidelity, with an optional end-frame image, selectable resolution, aspect ratio, and duration.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-prime-reference-to-video",
+    "description": "Wan 3.0 Prime Reference to Video generates a higher-fidelity video guided by a prompt plus up to 10 reference images, 5 reference videos, and 5 reference audios for visual and audio coherence.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "kie"
+  },
+  {
+    "name": "wan3.0-spicy-reference-to-video",
+    "description": "Wan 3.0 Spicy Reference to Video generates a bold, high-contrast, high-motion video guided by a prompt plus up to 10 reference images, 5 reference videos, and 5 reference audios for visual and audio coherence.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.55,
+    "provider": "kie"
+  },
+  {
+    "name": "muse-image-text-to-image",
+    "description": "Meta Muse Image Text-to-Image generates images directly from a text prompt, covering subject, scene, composition, lighting, mood, and style in a single pass.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.02,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "muse-image-edit",
+    "description": "Meta Muse Image Edit applies a text instruction to up to 10 reference images at once, for instruction-driven edits, composites, and style transforms.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.02,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-start-end-to-video",
+    "description": "FLUX 3 Start-End to Video generates a video transition between a start and end keyframe, with optional native synchronized audio, using Black Forest Labs' unified image/video/audio architecture.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.25,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-text-to-video-draft",
+    "description": "FLUX 3 Text-to-Video Draft is a fast, lower-cost draft mode for rapid ideation, storyboarding, and prompt iteration, before rendering a final-quality clip with FLUX 3 Text to Video.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.45,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "flux-3-video-extend-draft",
+    "description": "FLUX 3 Video Extend Draft is a fast, lower-cost draft mode for testing continuity, camera movement, and visual consistency before extending a clip with FLUX 3 Video Extend.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.45,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-1-text-to-video",
+    "description": "Gemini Omni 1.1 Flash \u2014 text-to-video generation with native synchronized audio, supporting optional reference images, a reference video clip, voice profile, and character reference inputs in one call.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.8,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-1-image-to-video",
+    "description": "Gemini Omni 1.1 Flash Image to Video \u2014 animate a starting keyframe image into a video, with an optional ending keyframe image for controlled first/last-frame transitions, and native synchronized audio.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.8,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-1-edit",
+    "description": "Gemini Omni 1.1 Flash Video Edit \u2014 restyle or edit a source video with a single text instruction, powered by Gemini Omni's natively multimodal any-to-any model.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 0.8,
+    "provider": "FAL_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-1-reference-to-video",
+    "description": "Gemini Omni 1.1 Flash Reference to Video \u2014 generate video referencing up to 7 images and up to 3 short reference video clips (each up to 3 seconds), addressed by tag directly in the prompt.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.28,
+    "provider": "FAL_AI"
+  },
+  {
+    "name": "minimax-h3-image-to-video-spicy",
+    "description": "MiniMax H3 Spicy Image to Video animates a starting image into bold, expressive video with native stereo audio, optional last-frame guidance, and 480p, 768p or 2K output for 3-15 second clips.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.29,
+    "provider": "WAVESPEED_AI"
+  },
+  {
+    "name": "depth-anything",
+    "description": "Extract a per-frame depth map from a video or image using Depth Anything V2, for use as a motion/structure control signal in AI video generation.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.2,
+    "provider": "VADOO_AI"
+  },
+  {
+    "name": "seedance-2-motion-control",
+    "description": "Recast an existing performance video with new performers while preserving the original motion, choreography, blocking, and camera work, and while keeping the original location. Upload a reference video plus character images of the new performers, and optionally a short instruction \u2014 the environment, motion, and camera work are automatically preserved and the identities are swapped.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.0,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-motion-control",
+    "description": "Recast an existing performance video with new performers while preserving the original motion, choreography, blocking, and camera work, and while keeping the original location. Upload a reference video plus character images of the new performers, and optionally a short instruction \u2014 the environment, motion, and camera work are automatically preserved and the identities are swapped.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.5,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "gpt-image-2.5-flare-text-to-image",
+    "description": "Generate high-fidelity images from text prompts using GPT-Image-2.5 Flare, OpenAI's default GPT Image 2.5 tier, with sharper detail, richer textures, and up to 50% lower latency than GPT Image 2.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.5-sunburst-text-to-image",
+    "description": "Generate high-fidelity images from text prompts using GPT-Image-2.5 Sunburst, OpenAI's slower, higher-precision GPT Image 2.5 tier, tuned for maximum edit precision on premium creative work.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.5-flare-image-to-image",
+    "description": "Transform and edit existing images using GPT-Image-2.5 Flare, OpenAI's default GPT Image 2.5 tier. Precision editing changes only what you ask for while preserving the rest of the scene, and multi-turn consistency keeps earlier edits intact across a chain of changes.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.5-sunburst-image-to-image",
+    "description": "Transform and edit existing images using GPT-Image-2.5 Sunburst, OpenAI's slower, higher-precision GPT Image 2.5 tier, tuned for maximum edit precision on a single critical edit.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "happy-horse-1-text-to-video",
+    "description": "Happy Horse 1.0 Text to Video \u2014 generate expressive, stylized video clips from text prompts. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1-image-to-video",
+    "description": "Happy Horse 1.0 Image to Video \u2014 bring still images to life with fluid, expressive animation. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.9,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1-reference-to-video",
+    "description": "Happy Horse 1.0 Reference to Video - generate expressive video clips conditioned on 1-9 reference images plus a text prompt. Selectable output resolution (720p/1080p) - price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.05,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1-video-edit",
+    "description": "Happy Horse 1.0 Video Edit - modify an input video using a natural-language instruction with optional reference images. Selectable output resolution (720p/1080p) - price scales with the resolution chosen.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.05,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-text-to-video",
+    "description": "Happy Horse 1.1 Text to Video \u2014 generate expressive video clips from text prompts with vivid character motion. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-image-to-video",
+    "description": "Happy Horse 1.1 Image to Video \u2014 bring still images to life with fluid, expressive animation. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-reference-to-video",
+    "description": "Happy Horse 1.1 Reference to Video \u2014 generate video conditioned on 1-9 reference images plus a text prompt. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "happy-horse-1.1-video-edit",
+    "description": "Happy Horse 1.1 Video Edit \u2014 modify an input video using natural-language instructions with optional reference images. Selectable output resolution (720p/1080p) \u2014 price scales with the resolution chosen.",
+    "category": "video-edit",
+    "tier": "balanced",
+    "cost": 0.7,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2.5-intl-motion-control",
+    "description": "International-region Seedance 2.5 Motion Control \u2014 recast an existing performance video with new performers while preserving the original motion, choreography, blocking, camera work, and location. Upload a reference video plus character images and an optional short instruction.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.65,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-spicy-motion-control",
+    "description": "Spicy Seedance 2.5 Motion Control \u2014 recast an existing performance video with a bolder creative treatment while preserving the original motion, choreography, blocking, camera work, and location. Upload a reference video plus character images and an optional short instruction.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.65,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "minimax-h3-max-text-to-video",
+    "description": "MiniMax H3 Max Text to Video creates high-fidelity video up to 1080p from a written prompt through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.4,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-image-to-video",
+    "description": "MiniMax H3 Max Image to Video animates a source image with a motion prompt at up to 1080p through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.4,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-reference-to-video",
+    "description": "MiniMax H3 Max Reference to Video creates high-fidelity video from a prompt plus image, video, and optional audio references through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.4,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-turbo-text-to-video",
+    "description": "MiniMax H3 Max Turbo Text to Video is a faster, lower-cost H3 Max mode that creates video up to 1080p from a written prompt through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.2,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-turbo-image-to-video",
+    "description": "MiniMax H3 Max Turbo Image to Video is a faster, lower-cost H3 Max mode that animates a source image at up to 1080p through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.2,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "seedance-2-spicy-omni-reference",
+    "description": "Seedance 2 Spicy Omni Reference by ByteDance. Same VIP-tier priority routing as Seedance 2 VIP Omni Reference, generating videos from up to 9 image references, 3 video clips, and 3 audio references, with reduced content-safety filtering for more creative freedom. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3. Selectable output resolution (720p/1080p/4K) \u2014 price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 1.5,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-spicy-omni-reference-fast",
+    "description": "Seedance 2 Spicy Omni Reference Fast by ByteDance. Faster video generation using up to 9 image references, up to 3 video clips, and up to 3 audio references with priority routing, and reduced content-safety filtering for more creative freedom. Reference materials in your prompt with @image1\u2026@image9, @video1\u2026@video3, and @audio1\u2026@audio3. Selectable output resolution (720p/1080p/4K) \u2014 price scales with the resolution chosen.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.05,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "seedance-2-mini-spicy-omni-reference",
+    "description": "Seedance 2 Mini Spicy Omni Reference generates video from a text prompt with optional image, video, and audio references. Cost-efficient mini-tier model for reference-driven workflows, with reduced content-safety filtering for more creative freedom.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.75,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "qwen2-1-text-to-image",
+    "description": "Qwen 2.1 Text to Image generates high-fidelity images from text prompts with intelligent prompt rewriting, transparent backgrounds, and up to 2K resolution.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "qwen2-1-image-to-image",
+    "description": "Qwen 2.1 Image to Image edits and recombines up to 10 reference images from a text prompt, with an optional inpainting mask for precise local edits.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.03,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-3-8-flash-tts",
+    "description": "Gemini 3.8 Flash TTS turns written dialogue into expressive, natural multi-speaker speech with studio-grade voice fidelity, expressive acting, and long-form stability. Control voice, accent, emotional style, and pace per speaker for fast, affordable voiceovers, character dialogue, and narration.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.015,
+    "provider": "KIE"
+  },
+  {
+    "name": "gemini-3-8-flash-lite-tts",
+    "description": "Gemini 3.8 Flash Lite TTS is Google's high-throughput, low-latency, cost-efficient text-to-speech model for expressive multi-speaker conversational audio. Control voice, accent, emotional style, and pace per speaker for high-volume voiceovers, real-time dialogue, and budget-conscious narration.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.01,
+    "provider": "KIE"
+  },
+  {
+    "name": "seedream-5.0-flash",
+    "description": "Seedream 5.0 Flash is ByteDance's fast, low-cost Seedream 5 text-to-image tier, delivering photorealistic 1K and 2K images with strong prompt adherence and in-image text for high-volume creative workflows.",
+    "category": "text-to-image",
+    "tier": "fast",
+    "cost": 0.027,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedream-5.0-flash-edit",
+    "description": "Seedream 5.0 Flash Edit is ByteDance's fast, low-cost image-to-image tier, editing or combining up to 10 reference images from a text instruction at 1K or 2K.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.027,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedream-5.0-flash-layerize",
+    "description": "Decompose a composite image into a base image plus clean, separate layer assets with Seedream 5.0 Flash Layer Decomposition. Optionally target elements with prompts or <bbox> regions.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.459,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "nano-banana-2-1",
+    "description": "Nano Banana 2.1 is Google's latest Gemini image model, delivering fast, high-fidelity image generation up to 4K with strong prompt adherence and legible in-image text.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.04,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "nano-banana-2-1-edit",
+    "description": "Nano Banana 2.1 is Google's latest Gemini image model, delivering fast, high-fidelity image generation and editing up to 4K with strong prompt adherence and legible in-image text.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.04,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "vidu-q4-image-to-video",
+    "description": "Vidu Q4 Image-to-Video animates a first-frame image into a 3-16 second clip at up to 4K with synchronized dialogue and sound effects. It inherits the aspect ratio of the source image and follows an optional motion prompt.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.475,
+    "provider": "kie"
+  },
+  {
+    "name": "vidu-q4-reference-to-video",
+    "description": "Vidu Q4 Reference-to-Video builds a 3-16 second clip at up to 4K from up to 15 reference images and 3 reference audio clips, keeping subjects consistent and adding synchronized dialogue and sound effects.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.475,
+    "provider": "kie"
+  },
+  {
+    "name": "ideogram-v4",
+    "description": "Ideogram 4.0 is Ideogram's latest text-to-image model, built for sharp, legible typography, clean graphic design and photorealistic scenes. Generate posters, logos, packaging and text-heavy visuals at 1K or 2K in five aspect ratios from prompts up to 4,000 characters.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.06,
+    "provider": "CUDDLER"
+  },
+  {
+    "name": "elevenlabs-v4",
+    "description": "Eleven v4 is ElevenLabs' latest text-to-speech model, delivering highly expressive, natural single-voice narration. Send up to 2,000 characters and get back a studio-quality MP3 \u2014 ideal for voiceovers, audiobooks, ads and app audio.",
+    "category": "audio",
+    "tier": "balanced",
+    "cost": 0.08,
+    "provider": "POYO"
+  },
+  {
+    "name": "fish-s2-1-pro",
+    "description": "Fish Audio S2.1 Pro is a high-fidelity text-to-speech model built for long-form narration. Send up to 10,000 characters in one request and get back a natural-sounding MP3. Billed per UTF-8 byte of text.",
+    "category": "audio",
+    "tier": "best",
+    "cost": 0.015,
+    "provider": "CUDDLER"
+  },
+  {
+    "name": "lyria-3-pro",
+    "description": "Lyria 3 Pro is Google's flagship music model: describe a genre, mood, instruments and structure and it composes a full-length song of up to three minutes, returned as an MP3.",
+    "category": "audio",
+    "tier": "best",
+    "cost": 0.08,
+    "provider": "CUDDLER"
+  },
+  {
+    "name": "lyria-3",
+    "description": "Lyria 3 generates short, high-quality music clips of up to 30 seconds from a text prompt \u2014 perfect for jingles, intros, loops and background tracks. Returned as an MP3.",
+    "category": "audio",
+    "tier": "balanced",
+    "cost": 0.04,
+    "provider": "CUDDLER"
+  },
+  {
+    "name": "lyria-2",
+    "description": "Lyria 2 is Google's instrumental music generation model. Describe the style and mood in a text prompt and get a roughly 30-second instrumental track as an MP3.",
+    "category": "audio",
+    "tier": "balanced",
+    "cost": 0.06,
+    "provider": "CUDDLER"
+  },
+  {
+    "name": "flux-3-klein-text-to-image",
+    "description": "Generate images with Black Forest Labs FLUX 3 Klein through a single asynchronous API. Choose 1K, 2K, or 4K output, nine aspect ratios, PNG/JPEG/WebP format, prompt enhancement, and up to four images per request.",
+    "category": "text-to-image",
+    "tier": "budget",
+    "cost": 0.009,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "flux-3-klein-edit-image",
+    "description": "Edit one to ten reference images with Black Forest Labs FLUX 3 Klein using a natural-language instruction. Choose 1K, 2K, or 4K output, automatic or fixed framing, PNG/JPEG/WebP format, prompt enhancement, and up to four results.",
+    "category": "image-edit",
+    "tier": "budget",
+    "cost": 0.009,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "grok-imagine-video-1-5-text-to-video",
+    "description": "Generate videos with Grok Imagine Video 1.5 (xAI) from a text prompt, with native audio, up to 15 seconds.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.64,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "grok-imagine-video-1-5-image-to-video",
+    "description": "Generate videos with Grok Imagine Video 1.5 (xAI) by animating an image, with native audio, up to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.64,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "grok-imagine-video-1-5-reference-to-video",
+    "description": "Generate videos with Grok Imagine Video 1.5 (xAI) guided by multiple reference images, with native audio, up to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.64,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "grok-imagine-video-1-5-lite-text-to-video",
+    "description": "Generate videos with Grok Imagine Video 1.5 Lite (xAI) from a text prompt, with native audio, up to 15 seconds.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.16,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "grok-imagine-video-1-5-lite-image-to-video",
+    "description": "Generate videos with Grok Imagine Video 1.5 Lite (xAI) by animating an image, with native audio, up to 15 seconds.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.16,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "kling-4.0-reference-to-video",
+    "description": "Kling 4.0 Reference-to-Video generates 3-30 second clips at 720p/1080p with native audio from reference images, reference videos, named elements and voices, all addressable in the prompt with @tags.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.785,
+    "provider": "kie"
+  },
+  {
+    "name": "kling-4.0-keyframe-to-video",
+    "description": "Kling 4.0 Keyframe-to-Video turns a first frame, up to 8 middle keyframes and a last frame into a 3-30 second clip at 720p/1080p, with each frame addressable in the prompt.",
+    "category": "image-to-video",
+    "tier": "balanced",
+    "cost": 0.785,
+    "provider": "kie"
+  },
+  {
+    "name": "kling-4.0-text-to-video",
+    "description": "Kling 4.0 Text-to-Video generates 3-30 second clips at 720p/1080p with native audio from a text prompt.",
+    "category": "text-to-video",
+    "tier": "balanced",
+    "cost": 0.785,
+    "provider": "kie"
+  },
+  {
+    "name": "pixverse-v6-max-text-to-video",
+    "description": "Generate cinematic videos from text with PixVerse V6 Max: up to 15 seconds at up to 1080p, stronger prompt following and camera control, and optional native audio.",
+    "category": "text-to-video",
+    "tier": "best",
+    "cost": 0.245,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "pixverse-v6-max-image-to-video",
+    "description": "Animate an image into cinematic video with PixVerse V6 Max: up to 15 seconds at up to 1080p, consistent subjects, and optional native audio.",
+    "category": "image-to-video",
+    "tier": "best",
+    "cost": 0.245,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "omnihuman-2-0",
+    "description": "Generate realistic talking and singing avatar video from a portrait image and audio using OmniHuman 2.0. Optional text prompt controls scene, motion and camera.",
+    "category": "lipsync",
+    "tier": "balanced",
+    "cost": 0.4,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "elevenlabs-v4-turbo",
+    "description": "Eleven v4 Turbo is ElevenLabs' lower-latency, lower-cost text-to-speech model with natural, expressive single-voice narration. Send up to 5,000 characters and get back a studio-quality MP3 \u2014 ideal for fast voiceovers, bulk narration and app audio.",
+    "category": "audio",
+    "tier": "fast",
+    "cost": 0.04,
+    "provider": "POYO"
+  },
+  {
+    "name": "kling-4.0-flash-text-to-video",
+    "description": "Kling 4.0 Flash Text-to-Video generates fast, low-cost 3-20 second 720p clips with native audio from a text prompt.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.47,
+    "provider": "kie"
+  },
+  {
+    "name": "kling-4.0-flash-reference-to-video",
+    "description": "Kling 4.0 Flash Reference-to-Video generates 3-20 second 720p clips with native audio from reference images, reference videos and named elements, all addressable in the prompt with @tags.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.47,
+    "provider": "kie"
+  },
+  {
+    "name": "kling-4.0-flash-keyframe-to-video",
+    "description": "Kling 4.0 Flash Keyframe-to-Video animates a first-frame image into a 3-20 second 720p clip, with the frame addressable in the prompt as @first_frame.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.47,
+    "provider": "kie"
+  },
+  {
+    "name": "gpt-image-2.6-flare-text-to-image",
+    "description": "Generate images from text prompts using GPT-Image-2.6 Flare, OpenAI's faster GPT Image 2.6 model, built for quick iteration with stronger layouts for posters, product imagery and other professional visuals. Output up to 4K with transparent backgrounds and animated GIF support.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.06,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.6-flare-image-to-image",
+    "description": "Edit or combine up to 16 reference images using GPT-Image-2.6 Flare, OpenAI's faster GPT Image 2.6 model. Say what should stay the same and what should change, and get fast, layout-aware edits at up to 4K.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.075,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.6-sunburst-text-to-image",
+    "description": "Generate images from text prompts using GPT-Image-2.6 Sunburst, OpenAI's GPT Image 2.6 model for detailed visual work, with higher-quality generation and stronger consistency across edits. Output up to 4K with transparent backgrounds and animated GIF support.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.06,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gpt-image-2.6-sunburst-image-to-image",
+    "description": "Edit or combine up to 16 reference images using GPT-Image-2.6 Sunburst, OpenAI's GPT Image 2.6 model for detailed visual work, with stronger consistency across edits at up to 4K.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.075,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "minimax-h3-max-spicy-text-to-video",
+    "description": "MiniMax H3 Max Spicy Text to Video is the relaxed-moderation tier of MiniMax H3 Max, generating video with native audio at 480p or 768p through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.46,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-spicy-image-to-video",
+    "description": "MiniMax H3 Max Spicy Image to Video is the relaxed-moderation tier of MiniMax H3 Max, generating video with native audio at 480p or 768p through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.46,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-spicy-reference-to-video",
+    "description": "MiniMax H3 Max Spicy Reference to Video is the relaxed-moderation tier of MiniMax H3 Max, generating video with native audio at 480p or 768p through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.46,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-turbo-spicy-text-to-video",
+    "description": "MiniMax H3 Max Turbo Spicy Text to Video is the relaxed-moderation tier of MiniMax H3 Max Turbo, generating video with native audio at 480p or 768p through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.23,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-max-turbo-spicy-image-to-video",
+    "description": "MiniMax H3 Max Turbo Spicy Image to Video is the relaxed-moderation tier of MiniMax H3 Max Turbo, generating video with native audio at 480p or 768p through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.23,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-text-to-video-spicy",
+    "description": "MiniMax H3 Spicy Text to Video is the relaxed-moderation tier of MiniMax H3, generating video with native audio from a written prompt at 480p, 768p or 2K through the Muapi API.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.58,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "minimax-h3-reference-to-video-spicy",
+    "description": "MiniMax H3 Spicy Reference to Video is the relaxed-moderation tier of MiniMax H3, generating video with native audio from a prompt plus image, video and optional audio references at 480p, 768p or 2K through the Muapi API.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.58,
+    "provider": "MINIMAX"
+  },
+  {
+    "name": "seedance-2-spicy-motion-control",
+    "description": "Spicy Seedance 2 Motion Control \u2014 recast an existing performance video with a bolder creative treatment while preserving the original motion, choreography, blocking, camera work, and location. Upload a reference video plus character images of the new performers, and optionally a short instruction \u2014 the environment, motion, and camera work are automatically preserved and the identities are swapped.",
+    "category": "video-edit",
+    "tier": "best",
+    "cost": 1.1,
+    "provider": "KINOVI"
+  },
+  {
+    "name": "gemini-omni-flash-1-2-text-to-video",
+    "description": "Gemini Omni 1.2 Flash \u2014 text-to-video generation with native synchronized audio, 3-15 second clips from 360p to 4K.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-2-image-to-video",
+    "description": "Gemini Omni 1.2 Flash \u2014 animate a starting image (with optional ending frame) into a 3-15 second video with native synchronized audio.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-2-video-edit",
+    "description": "Gemini Omni 1.2 Flash \u2014 edit an existing video with a simple text instruction, optionally guided by reference images. Output length follows the source video (max 15s).",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-2-reference-to-video",
+    "description": "Gemini Omni 1.2 Flash \u2014 generate a 3-15 second video guided by up to 6 reference images for subject, scene, or style, with native synchronized audio.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 0.56,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedream-5.5",
+    "description": "Seedream 5.5 is ByteDance's image model for photographic realism and aesthetics, with native transparent-background output, 8 aspect ratios and 1K, 1.5K and 2K tiers.",
+    "category": "text-to-image",
+    "tier": "balanced",
+    "cost": 0.02,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedream-5.5-edit",
+    "description": "Seedream 5.5 Edit edits and composes images from one or up to 10 reference images, preserving unedited areas across repeated edits, with transparent-background output and 1K to 2K tiers.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.028,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedream-5.5-layer",
+    "description": "Seedream 5.5 Layer Decomposition splits a single image into a base image plus transparent PNG layers for compositing, asset extraction and layered design workflows.",
+    "category": "image-edit",
+    "tier": "balanced",
+    "cost": 0.6,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "minimax-h3-image-text-to-image",
+    "description": "MiniMax H3 Image generates images from text with built-in prompt enhancement, 13 aspect ratios and 1K, 2K or 4K output.",
+    "category": "text-to-image",
+    "tier": "fast",
+    "cost": 0.03,
+    "provider": "RUNWARE"
+  },
+  {
+    "name": "minimax-h3-image-edit",
+    "description": "MiniMax H3 Image Edit edits and combines up to 16 reference images with a text instruction, outputting at 1K, 2K or 4K.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.038,
+    "provider": "RUNWARE"
+  },
+  {
+    "name": "minimax-h3-image-highspeed-text-to-image",
+    "description": "MiniMax H3 Image Highspeed is the fast tier of H3 Image for text-to-image, with 13 aspect ratios and 1K, 2K or 4K output.",
+    "category": "text-to-image",
+    "tier": "fast",
+    "cost": 0.06,
+    "provider": "RUNWARE"
+  },
+  {
+    "name": "minimax-h3-image-highspeed-edit",
+    "description": "MiniMax H3 Image Highspeed Edit is the fast tier for editing and combining up to 16 reference images at 1K, 2K or 4K.",
+    "category": "image-edit",
+    "tier": "fast",
+    "cost": 0.076,
+    "provider": "RUNWARE"
+  },
+  {
+    "name": "suno-speech",
+    "description": "Generate expressive AI speech with tone, rhythm, emotion and optional background music from a scene prompt or a full script.",
+    "category": "audio",
+    "tier": "balanced",
+    "cost": 0.1,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "gemini-omni-flash-1-2-extend",
+    "description": "Gemini Omni 1.2 Flash Extend \u2014 continue a finished Gemini Omni 1.2 Flash video from its last frame by 3-10 seconds and get the full clip back as one video.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 0.12,
+    "provider": "KIE_AI"
+  },
+  {
+    "name": "seedance-2.5-flash-text-to-video",
+    "description": "Seedance 2.5 Flash Text-to-Video is the fast, low-cost Seedance 2.5 tier: 4-30 second 480p/720p clips with native synchronized audio generated from a text prompt.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 1.14,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-image-to-video",
+    "description": "Seedance 2.5 Flash Image-to-Video animates a single image into a 4-30 second 480p/720p clip with native audio, following the image's aspect ratio.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.14,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-first-last-frame",
+    "description": "Seedance 2.5 Flash First & Last Frame generates a smooth 4-30 second transition between a start and end image, with native audio at 480p or 720p.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.14,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-reference-to-video",
+    "description": "Seedance 2.5 Flash Reference-to-Video generates 4-30 second clips guided by up to 10 reference images, 5 reference videos and 5 reference audio clips (use @Image1, @Video1, @Audio1 in the prompt).",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.14,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-video-edit",
+    "description": "Seedance 2.5 Flash Video Edit restyles, relights or changes elements of an existing clip at 480p or 720p, keeping the source length, at a lower price than Seedance 2.5.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.5,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-video-extend",
+    "description": "Seedance 2.5 Flash Video Extend continues an existing clip forward by 4-30 seconds with native audio at 480p or 720p, at a lower price than Seedance 2.5.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.5,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-text-to-video",
+    "description": "Seedance 2.5 Flash Spicy Text-to-Video is the fast, low-cost Seedance 2.5 tier: 4-30 second 480p/720p clips with native synchronized audio generated from a text prompt. Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-image-to-video",
+    "description": "Seedance 2.5 Flash Spicy Image-to-Video animates a single image into a 4-30 second 480p/720p clip with native audio, following the image's aspect ratio. Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-first-last-frame",
+    "description": "Seedance 2.5 Flash Spicy First & Last Frame generates a smooth 4-30 second transition between a start and end image, with native audio at 480p or 720p. Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-reference-to-video",
+    "description": "Seedance 2.5 Flash Spicy Reference-to-Video generates 4-30 second clips guided by up to 10 reference images, 5 reference videos and 5 reference audio clips (use @Image1, @Video1, @Audio1 in the prompt). Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-video-edit",
+    "description": "Seedance 2.5 Flash Spicy Video Edit restyles, relights or changes elements of an existing clip at 480p or 720p, keeping the source length, at a lower price than Seedance 2.5. Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.65,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-spicy-video-extend",
+    "description": "Seedance 2.5 Flash Spicy Video Extend continues an existing clip forward by 4-30 seconds with native audio at 480p or 720p, at a lower price than Seedance 2.5. Relaxed-moderation variant with reduced content-safety filtering.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.65,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-text-to-video",
+    "description": "Seedance 2.5 Flash Intl Text-to-Video is the fast, low-cost Seedance 2.5 tier: 4-30 second 480p/720p clips with native synchronized audio generated from a text prompt. International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "text-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-image-to-video",
+    "description": "Seedance 2.5 Flash Intl Image-to-Video animates a single image into a 4-30 second 480p/720p clip with native audio, following the image's aspect ratio. International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-first-last-frame",
+    "description": "Seedance 2.5 Flash Intl First & Last Frame generates a smooth 4-30 second transition between a start and end image, with native audio at 480p or 720p. International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-reference-to-video",
+    "description": "Seedance 2.5 Flash Intl Reference-to-Video generates 4-30 second clips guided by up to 10 reference images, 5 reference videos and 5 reference audio clips (use @Image1, @Video1, @Audio1 in the prompt). International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "image-to-video",
+    "tier": "fast",
+    "cost": 1.254,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-video-edit",
+    "description": "Seedance 2.5 Flash Intl Video Edit restyles, relights or changes elements of an existing clip at 480p or 720p, keeping the source length, at a lower price than Seedance 2.5. International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.65,
+    "provider": "SEEGEN"
+  },
+  {
+    "name": "seedance-2.5-flash-intl-video-extend",
+    "description": "Seedance 2.5 Flash Intl Video Extend continues an existing clip forward by 4-30 seconds with native audio at 480p or 720p, at a lower price than Seedance 2.5. International (Dreamina) route variant with standard content-safety filtering.",
+    "category": "video-edit",
+    "tier": "fast",
+    "cost": 1.65,
+    "provider": "SEEGEN"
   }
 ]

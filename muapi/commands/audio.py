@@ -137,3 +137,30 @@ def from_video(
     print_result(result, output_json, label="Video+Audio (MMAudio)")
     if download and result.get("status") == "completed":
         download_outputs(result, download)
+
+
+@app.command("tts")
+def tts(
+    prompt: str = typer.Argument(..., help="Text to convert to speech"),
+    model: str = typer.Option("elevenlabs-v4-turbo", "--model", "-m", help="TTS model (elevenlabs-v4-turbo, elevenlabs-tts-turbo-2-5, gemini-3-8-flash-tts)"),
+    voice_id: str = typer.Option("", "--voice-id", help="Voice ID for ElevenLabs"),
+    webhook: Optional[str] = typer.Option(None, "--webhook", help="Webhook URL for async notification"),
+    wait: bool = typer.Option(True, "--wait/--no-wait"),
+    download: Optional[str] = typer.Option(None, "--download", "-d"),
+    output_json: bool = typer.Option(False, "--output-json", "-j"),
+):
+    """Generate spoken audio from text using TTS models."""
+    payload = {"prompt": prompt}
+    if voice_id:
+        payload["voice_id"] = voice_id
+    if webhook:
+        payload["webhook_url"] = webhook
+    try:
+        with spinner_status(f"Generating speech with {model}..."):
+            result = client.generate(model, payload, wait=wait)
+    except client.MuapiError as e:
+        error_exit(str(e))
+
+    print_result(result, output_json, label=f"Speech ({model})")
+    if download and result.get("status") == "completed":
+        download_outputs(result, download)
